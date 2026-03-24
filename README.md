@@ -2,6 +2,9 @@
 
 This is my professional portfolio website, designed to showcase my journey as a Software Engineering student, my technical skills, and my personal projects.
 
+## URL
+https://portfolio-dipalma.netlify.app/#projects
+
 ## 🚀 Tech Stack
 - **Framework:** React.js / Vite
 - **Styling:** Tailwind CSS
