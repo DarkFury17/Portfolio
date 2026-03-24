@@ -20,16 +20,20 @@ const Projects = () => {
       desc: 'Complete and scalable online sales platform, currently being updated. Full management of catalog, orders, and payment systems.',
       badges: ['Web Development', 'E-commerce', 'Live Project'],
       liveLink: 'https://enjoyourcoffee.it',
-      repoLink: 'https://github.com/DarkFury17/EnjoyourCoffee.git'
+      githubLinks: [
+        { label: 'View Code', url: 'https://github.com/DarkFury17/EnjoyourCoffee.git' }
+      ]
     },
     { 
       id: '02', 
       title: 'Pet Shop Management System', 
-      subtitle: 'Academic Project - Computer Science Laboratory',
-      desc: 'Management software for the buying, selling, and inventory of a pet supply store. Focus on software architecture and data integrity.',
-      badges: ['Software Engineering', 'SQL', 'Java'],
+      subtitle: 'Management software in C',
+      desc: 'A management software developed in C for pet shop inventory. It implements dynamic data structures (Linked Lists) to manage items and orders, featuring file-based data persistence and comprehensive technical documentation generated with Doxygen.',
+      badges: ['C Programming', 'Data Structures', 'Doxygen'],
       liveLink: null,
-      repoLink: '#'
+      githubLinks: [
+        { label: 'View Code', url: 'https://github.com/DarkFury17/Pet-Shop-Management-System' }
+      ]
     },
     { 
       id: '03', 
@@ -71,15 +75,15 @@ const Projects = () => {
                 </div>
                 
                 <div className="flex items-center gap-2">
-                  {!proj.githubLinks && (
+                  {proj.liveLink && (
                     <a 
-                      href={proj.repoLink} 
+                      href={proj.liveLink} 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="text-zinc-500 hover:text-white transition-colors" 
-                      title="Repository"
+                      title="Visit Site"
                     >
-                      <Github className="w-5 h-5" />
+                      <ExternalLink className="w-5 h-5" />
                     </a>
                   )}
                 </div>
@@ -102,17 +106,7 @@ const Projects = () => {
             </div>
 
             <div className="mt-auto">
-              {proj.liveLink ? (
-                <a 
-                  href={proj.liveLink} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-full gap-2 bg-white text-black px-4 py-3 rounded-lg font-medium transition-all hover:bg-zinc-200 active:scale-95 text-sm"
-                >
-                  Visit Live Site
-                  <ArrowUpRight className="w-4 h-4" />
-                </a>
-              ) : proj.githubLinks ? (
+              {proj.githubLinks ? (
                 <div className="flex gap-3">
                   {proj.githubLinks.map((link, i) => (
                     <a 
