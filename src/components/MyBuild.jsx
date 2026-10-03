@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Cpu, Monitor, X, Terminal, Server, HardDrive } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const MyBuild = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { language, t } = useLanguage();
 
   // Close modal on ESC key
   useEffect(() => {
@@ -29,16 +31,14 @@ const MyBuild = () => {
         <div className="w-full lg:w-5/12 space-y-5">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-surface border border-zinc-800 rounded-full text-xs text-zinc-400 font-mono">
             <Server className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Beyond Code & Engineering Lab</span>
+            <span>{language === 'it' ? 'Oltre il Codice & Lab' : 'Beyond Code & Engineering Lab'}</span>
           </div>
           
           <h2 className="text-3xl font-bold tracking-tight text-white">
-            Workstation & Local Lab
+            {t.setup.title}
           </h2>
           <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-            Beyond software development, I maintain an interest in computer architecture, thermal dynamics, 
-            and hardware optimization. My workstation is tuned for rapid local compilation, Docker containerization, 
-            and low-level C benchmarking.
+            {t.setup.subtitle}
           </p>
 
           <div className="pt-2">
@@ -60,12 +60,14 @@ const MyBuild = () => {
               
               <div className="flex items-center justify-between border-b border-zinc-800/80 pb-5 mb-6">
                 <div>
-                  <h3 className="text-base font-semibold text-white">Hardware Architecture</h3>
+                  <h3 className="text-base font-semibold text-white">
+                    {language === 'it' ? 'Architettura Hardware' : 'Hardware Architecture'}
+                  </h3>
                   <p className="text-xs text-zinc-400 font-mono mt-0.5">Host ID: MD-WS-7600X/4070</p>
                 </div>
                 <div className="flex items-center gap-2 text-xs font-medium bg-emerald-500/10 text-emerald-400 px-3 py-1.5 rounded-full border border-emerald-500/20">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                  Operational
+                  {language === 'it' ? 'Operativo' : 'Operational'}
                 </div>
               </div>
 
@@ -109,7 +111,9 @@ const MyBuild = () => {
                       <HardDrive className="w-4 h-4" />
                     </div>
                     <div>
-                      <div className="text-sm font-medium text-white">Memory & NVMe Storage</div>
+                      <div className="text-sm font-medium text-white">
+                        {language === 'it' ? 'Memoria & Storage NVMe' : 'Memory & NVMe Storage'}
+                      </div>
                       <div className="text-xs text-zinc-400 font-mono mt-0.5">High Frequency Workload Profiling</div>
                     </div>
                   </div>

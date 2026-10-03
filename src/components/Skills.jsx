@@ -3,6 +3,7 @@ import {
   Network, GitBranch, Binary 
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const cardVariants = {
   hidden: { opacity: 0, y: 16 },
@@ -14,46 +15,60 @@ const cardVariants = {
 };
 
 const Skills = () => {
+  const { language, t } = useLanguage();
+
   const skillsConfig = [
     { 
       id: '01',
-      name: 'Systems & Low-Level C', 
-      desc: 'C99/C11 systems programming, POSIX sockets, manual dynamic memory management, Valgrind leak sanitization, and pointer arithmetic.',
+      name: language === 'it' ? 'Sistemi & C a Basso Livello' : 'Systems & Low-Level C', 
+      desc: language === 'it' 
+        ? 'Programmazione di sistema C99/C11, socket POSIX, gestione manuale della memoria dinamica, sanitizzazione leak con Valgrind e aritmetica dei puntatori.'
+        : 'C99/C11 systems programming, POSIX sockets, manual dynamic memory management, Valgrind leak sanitization, and pointer arithmetic.',
       icon: Terminal, 
       tags: ['C99 / C11', 'POSIX', 'Valgrind', 'Memory Safety']
     },
     { 
       id: '02',
-      name: 'Network Protocols & Concurrency', 
-      desc: 'Socket architecture utilizing non-blocking UDP datagrams and reliable TCP streaming. Multithreaded client-server synchronization.',
+      name: language === 'it' ? 'Protocolli di Rete & Concorrenza' : 'Network Protocols & Concurrency', 
+      desc: language === 'it'
+        ? 'Architetture socket con datagrammi UDP non bloccanti e streaming affidabile TCP. Sincronizzazione multi-thread client-server.'
+        : 'Socket architecture utilizing non-blocking UDP datagrams and reliable TCP streaming. Multithreaded client-server synchronization.',
       icon: Network, 
       tags: ['TCP / UDP', 'POSIX Threads', 'I/O Multiplexing', 'RFC 5545']
     },
     { 
       id: '03',
-      name: 'Backend & API Engineering', 
-      desc: 'High-throughput microservices and REST APIs with TypeScript, Node.js, and Fastify. Strict schema validation with Zod and Clean Architecture.',
+      name: language === 'it' ? 'Ingegneria Backend & API' : 'Backend & API Engineering', 
+      desc: language === 'it'
+        ? 'Microservizi e REST API ad alto throughput con TypeScript, Node.js e Fastify. Validazione schemi rigorosa con Zod e Clean Architecture.'
+        : 'High-throughput microservices and REST APIs with TypeScript, Node.js, and Fastify. Strict schema validation with Zod and Clean Architecture.',
       icon: Server, 
       tags: ['TypeScript', 'Fastify', 'Node.js', 'Clean Architecture']
     },
     { 
       id: '04',
-      name: 'Database Architecture', 
-      desc: 'Relational database schema modeling, indexing strategies, data normalization, and type-safe database queries via Prisma and PostgreSQL.',
+      name: language === 'it' ? 'Architettura Basi di Dati' : 'Database Architecture', 
+      desc: language === 'it'
+        ? 'Modellazione relazionale di schemi, strategie di indicizzazione, normalizzazione dei dati e query type-safe con Prisma e PostgreSQL.'
+        : 'Relational database schema modeling, indexing strategies, data normalization, and type-safe database queries via Prisma and PostgreSQL.',
       icon: Database, 
       tags: ['PostgreSQL', 'Prisma ORM', 'Schema Design', 'ACID']
     },
     { 
       id: '05',
-      name: 'Frontend Systems & UI', 
-      desc: 'Component architecture in React, state management primitives, accessible DOM trees, Framer Motion choreography, and responsive Tailwind CSS.',
+      name: language === 'it' ? 'Sistemi Frontend & UI' : 'Frontend Systems & UI', 
+      desc: language === 'it'
+        ? 'Architettura a componenti React, primitive di gestione dello stato, alberi DOM accessibili, animazioni fluide con Framer Motion e Tailwind CSS.'
+        : 'Component architecture in React, state management primitives, accessible DOM trees, Framer Motion choreography, and responsive Tailwind CSS.',
       icon: Layout, 
       tags: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion']
     },
     { 
       id: '06',
-      name: 'Verification & Toolchain', 
-      desc: 'Test-driven design with Vitest (52+ automated assertions), Docker containerization, Git branching workflows, and automated Doxygen docs.',
+      name: language === 'it' ? 'Verifica del Software & Tooling' : 'Verification & Toolchain', 
+      desc: language === 'it'
+        ? 'Sviluppo guidato dai test con Vitest (52+ asserzioni automatizzate), containerizzazione Docker, workflow Git e documentazione Doxygen.'
+        : 'Test-driven design with Vitest (52+ automated assertions), Docker containerization, Git branching workflows, and automated Doxygen docs.',
       icon: GitBranch, 
       tags: ['Vitest', 'Docker', 'Git', 'Doxygen']
     },
@@ -64,14 +79,13 @@ const Skills = () => {
       <div className="mb-12">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-zinc-800 text-xs font-mono text-zinc-400 mb-3">
           <Binary className="w-3.5 h-3.5 text-emerald-400" />
-          <span>Core Capabilities</span>
+          <span>{language === 'it' ? 'Competenze Cardine' : 'Core Capabilities'}</span>
         </div>
         <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-2">
-          Technical Expertise & Tooling
+          {t.skills.title}
         </h2>
         <p className="text-zinc-400 max-w-xl text-sm sm:text-base leading-relaxed">
-          Specialized proficiencies across systems programming, distributed network protocols, 
-          backend engineering, and full-stack software development.
+          {t.skills.subtitle}
         </p>
       </div>
 

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { LanguageProvider } from './context/LanguageContext';
 import AppleHelloSplash from './components/AppleHelloSplash';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -18,23 +19,25 @@ function App() {
   });
 
   return (
-    <div className="min-h-screen text-zinc-100 bg-background selection:bg-zinc-800 selection:text-white flex flex-col justify-between">
-      {showSplash && (
-        <AppleHelloSplash onComplete={() => setShowSplash(false)} />
-      )}
+    <LanguageProvider>
+      <div className="min-h-screen text-zinc-100 bg-background selection:bg-zinc-800 selection:text-white flex flex-col justify-between">
+        {showSplash && (
+          <AppleHelloSplash onComplete={() => setShowSplash(false)} />
+        )}
 
-      <Navbar />
+        <Navbar />
 
-      <main className="pt-24 sm:pt-28 max-w-6xl mx-auto px-4 sm:px-6 w-full space-y-16 sm:space-y-24">
-        <Hero />
-        <Projects />
-        <Resume />
-        <Skills />
-        <MyBuild />
-      </main>
+        <main className="pt-24 sm:pt-28 max-w-6xl mx-auto px-4 sm:px-6 w-full space-y-16 sm:space-y-24">
+          <Hero />
+          <Projects />
+          <Resume />
+          <Skills />
+          <MyBuild />
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </LanguageProvider>
   );
 }
 

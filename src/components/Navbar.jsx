@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Download, Github, Linkedin } from 'lucide-react';
+import { Menu, X, Download, Github, Linkedin, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { language, toggleLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,11 +34,11 @@ const Navbar = () => {
   }, [isOpen]);
 
   const navLinks = [
-    { label: 'Home', href: '#hero' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Resume', href: '#resume' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Setup', href: '#build' },
+    { label: t.nav.about, href: '#hero' },
+    { label: t.nav.projects, href: '#projects' },
+    { label: t.nav.cv, href: '#resume' },
+    { label: t.nav.skills, href: '#skills' },
+    { label: t.nav.setup, href: '#build' },
   ];
 
   return (
@@ -82,8 +84,23 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Right Action: Download CV & Mobile Toggle */}
-          <div className="flex items-center gap-3">
+          {/* Right Action: Language Switcher, Download CV & Mobile Toggle */}
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            {/* Language Toggle Button */}
+            <button
+              type="button"
+              onClick={toggleLanguage}
+              aria-label={`Switch language to ${language === 'en' ? 'Italian' : 'English'}`}
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono font-semibold bg-surface border border-zinc-700/80 hover:border-zinc-500 text-zinc-300 hover:text-white transition-all shadow-sm focus-visible:ring-2 focus-visible:ring-emerald-500 cursor-pointer"
+              title={language === 'en' ? 'Passa alla lingua italiana' : 'Switch to English'}
+            >
+              <Globe className="w-3.5 h-3.5 text-zinc-400" />
+              <span className={language === 'en' ? 'text-emerald-400 font-bold' : 'text-zinc-500'}>EN</span>
+              <span className="text-zinc-600">/</span>
+              <span className={language === 'it' ? 'text-emerald-400 font-bold' : 'text-zinc-500'}>IT</span>
+            </button>
+
+            {/* Single CV Asset Button */}
             <a 
               href="/Marco_Di_Palma_CV.pdf"
               download="Marco_Di_Palma_CV.pdf"
@@ -91,7 +108,7 @@ const Navbar = () => {
               className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-medium text-zinc-200 bg-zinc-900 border border-zinc-700/80 hover:bg-zinc-800 hover:border-zinc-600 hover:text-white transition-all shadow-sm focus-visible:ring-2 focus-visible:ring-emerald-500"
             >
               <Download className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Resume PDF</span>
+              <span>{t.cv.cvButton}</span>
             </a>
 
             {/* Mobile Hamburger Button */}
@@ -133,6 +150,21 @@ const Navbar = () => {
               ))}
               
               <div className="pt-3 mt-1 border-t border-zinc-800/80 flex flex-col gap-3">
+                {/* Mobile Language Toggle */}
+                <div className="flex items-center justify-between px-2 py-1">
+                  <span className="text-xs font-mono text-zinc-400">Language:</span>
+                  <button
+                    type="button"
+                    onClick={toggleLanguage}
+                    className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono font-semibold bg-zinc-900 border border-zinc-700 text-zinc-300"
+                  >
+                    <span className={language === 'en' ? 'text-emerald-400 font-bold' : 'text-zinc-500'}>English</span>
+                    <span className="text-zinc-600">|</span>
+                    <span className={language === 'it' ? 'text-emerald-400 font-bold' : 'text-zinc-500'}>Italiano</span>
+                  </button>
+                </div>
+
+                {/* Mobile Download CV Action */}
                 <a 
                   href="/Marco_Di_Palma_CV.pdf"
                   download="Marco_Di_Palma_CV.pdf"
@@ -140,7 +172,7 @@ const Navbar = () => {
                   className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-sm font-semibold bg-white text-black hover:bg-zinc-200 transition-colors shadow-md"
                 >
                   <Download className="w-4 h-4" />
-                  Download Resume (PDF)
+                  {t.cv.cvButton}
                 </a>
 
                 <div className="flex items-center justify-center gap-4 pt-2 text-zinc-400">

@@ -1,6 +1,9 @@
 import { Github, Linkedin, Mail, ArrowUp } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const Footer = () => {
+  const { language, t } = useLanguage();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -19,17 +22,18 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-xs text-zinc-400 max-w-sm leading-relaxed">
-              Software Engineer & Computer Science Student at University of Bari. 
-              Focused on distributed systems, low-level networking, and secure full-stack software.
+              {language === 'it' 
+                ? 'Software Engineer & Studente di Informatica presso l’Università degli Studi di Bari. Focalizzato su sistemi distribuiti, reti a basso livello e software full-stack.'
+                : 'Software Engineer & Computer Science Student at University of Bari. Focused on distributed systems, low-level networking, and secure full-stack software.'}
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-6 text-xs font-medium">
-            <a href="#hero" className="hover:text-white transition-colors">Home</a>
-            <a href="#projects" className="hover:text-white transition-colors">Projects</a>
-            <a href="#resume" className="hover:text-white transition-colors">Resume</a>
-            <a href="#skills" className="hover:text-white transition-colors">Skills</a>
-            <a href="#build" className="hover:text-white transition-colors">Setup</a>
+            <a href="#hero" className="hover:text-white transition-colors">{t.nav.about}</a>
+            <a href="#projects" className="hover:text-white transition-colors">{t.nav.projects}</a>
+            <a href="#resume" className="hover:text-white transition-colors">{t.nav.cv}</a>
+            <a href="#skills" className="hover:text-white transition-colors">{t.nav.skills}</a>
+            <a href="#build" className="hover:text-white transition-colors">{t.nav.setup}</a>
           </div>
 
           <div className="flex items-center gap-3">
@@ -62,7 +66,7 @@ const Footer = () => {
               onClick={scrollToTop}
               aria-label="Scroll back to top"
               className="p-2.5 rounded-xl bg-zinc-800 text-zinc-300 hover:text-white hover:bg-zinc-700 transition-all ml-2"
-              title="Back to Top"
+              title={language === 'it' ? 'Torna all’inizio' : 'Back to Top'}
             >
               <ArrowUp className="w-4 h-4" />
             </button>
@@ -73,7 +77,7 @@ const Footer = () => {
           <p>© {new Date().getFullYear()} Marco Di Palma. All rights reserved.</p>
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-            <span>Production Build • Hosted on Netlify</span>
+            <span>{language === 'it' ? 'Build di Produzione • Ospitato su Netlify' : 'Production Build • Hosted on Netlify'}</span>
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight, Download, Mail, MessageCircle, Phone, Github, Linkedin, Shield, Terminal, Cpu } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -24,6 +25,7 @@ const itemVariants = {
 
 const Hero = () => {
   const [modalType, setModalType] = useState(null); // 'phone' | 'email' | 'wa' | null
+  const { language, t } = useLanguage();
 
   // Handle ESC key for modal dismissal
   useEffect(() => {
@@ -57,7 +59,7 @@ const Hero = () => {
         {/* Availability Badge */}
         <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900/90 border border-zinc-700/60 text-xs text-zinc-300 mb-6 shadow-sm">
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span>Available for Software Engineering Roles & Internships</span>
+          <span>{t.hero.badge}</span>
         </motion.div>
 
         {/* Main Name & Title */}
@@ -68,18 +70,30 @@ const Hero = () => {
         </motion.div>
         
         <motion.h2 variants={itemVariants} className="text-2xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-zinc-300 mb-6 leading-[1.15]">
-          Software Engineer & <br className="hidden sm:inline" />
+          {language === 'it' ? 'Software Engineer &' : 'Software Engineer &'}{' '}
+          <br className="hidden sm:inline" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-400 to-zinc-500">
-            Computer Science Student.
+            {language === 'it' ? 'Studente di Informatica.' : 'Computer Science Student.'}
           </span>
         </motion.h2>
         
         {/* Technical Value Proposition */}
         <motion.p variants={itemVariants} className="text-base sm:text-lg text-zinc-400 mb-8 max-w-2xl leading-relaxed">
-          Undergraduate Computer Science student at the{' '}
-          <strong className="text-zinc-200 font-medium">University of Bari &apos;Aldo Moro&apos;</strong>. 
-          Specialized in low-level network programming, POSIX concurrent sockets in C, 
-          and production-grade full-stack architectures with TypeScript and React.
+          {language === 'it' ? (
+            <>
+              Studente di Informatica presso l&apos;
+              <strong className="text-zinc-200 font-medium">Università degli Studi di Bari &apos;Aldo Moro&apos;</strong>. 
+              Specializzato in programmazione di rete a basso livello, socket concorrenti POSIX in C e 
+              architetture full-stack scalabili con TypeScript e React.
+            </>
+          ) : (
+            <>
+              Undergraduate Computer Science student at the{' '}
+              <strong className="text-zinc-200 font-medium">University of Bari &apos;Aldo Moro&apos;</strong>. 
+              Specialized in low-level network programming, POSIX concurrent sockets in C, 
+              and production-grade full-stack architectures with TypeScript and React.
+            </>
+          )}
         </motion.p>
 
         {/* Key Engineering Pillars / Highlights */}
@@ -88,21 +102,21 @@ const Hero = () => {
             <Terminal className="w-4 h-4 text-emerald-400 shrink-0" />
             <div className="text-xs">
               <div className="font-semibold text-zinc-200">Systems & C</div>
-              <div className="text-zinc-400 text-[11px]">POSIX Sockets & IPC</div>
+              <div className="text-zinc-400 text-[11px]">{t.hero.systemsHighlight}</div>
             </div>
           </div>
           <div className="flex items-center gap-2.5 p-3 rounded-xl bg-surface/60 border border-zinc-800/80">
             <Cpu className="w-4 h-4 text-blue-400 shrink-0" />
             <div className="text-xs">
               <div className="font-semibold text-zinc-200">Full-Stack</div>
-              <div className="text-zinc-400 text-[11px]">TypeScript & React</div>
+              <div className="text-zinc-400 text-[11px]">{t.hero.fullstackHighlight}</div>
             </div>
           </div>
           <div className="col-span-2 sm:col-span-1 flex items-center gap-2.5 p-3 rounded-xl bg-surface/60 border border-zinc-800/80">
             <Shield className="w-4 h-4 text-purple-400 shrink-0" />
             <div className="text-xs">
-              <div className="font-semibold text-zinc-200">Architecture</div>
-              <div className="text-zinc-400 text-[11px]">Clean & Secure Code</div>
+              <div className="font-semibold text-zinc-200">{language === 'it' ? 'Architettura' : 'Architecture'}</div>
+              <div className="text-zinc-400 text-[11px]">{t.hero.architectureHighlight}</div>
             </div>
           </div>
         </motion.div>
@@ -115,11 +129,11 @@ const Hero = () => {
               href="#projects" 
               className="group inline-flex items-center justify-center gap-2 bg-white text-black px-6 py-3 rounded-xl font-semibold text-sm hover:bg-zinc-200 active:scale-95 transition-all shadow-md focus-visible:ring-2 focus-visible:ring-emerald-500"
             >
-              <span>Explore Projects</span>
+              <span>{t.hero.exploreProjects}</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform ease-out" />
             </a>
             
-            {/* Download CV CTA */}
+            {/* Single Static CV Asset CTA */}
             <a 
               href="/Marco_Di_Palma_CV.pdf"
               download="Marco_Di_Palma_CV.pdf"
@@ -127,7 +141,7 @@ const Hero = () => {
               className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-zinc-700 bg-zinc-900/80 text-zinc-200 font-medium hover:bg-zinc-800 hover:border-zinc-500 hover:text-white active:scale-95 transition-all text-sm shadow-sm focus-visible:ring-2 focus-visible:ring-emerald-500"
             >
               <Download className="w-4 h-4 text-emerald-400" />
-              <span>Download CV (PDF)</span>
+              <span>{t.cv.cvButton}</span>
             </a>
 
             {/* GitHub */}
@@ -163,7 +177,7 @@ const Hero = () => {
               type="button"
               onClick={() => setModalType('email')}
               className="p-3 bg-surface border border-zinc-800 rounded-xl text-zinc-400 hover:text-white hover:bg-zinc-800 hover:border-zinc-600 transition-all shadow-sm focus-visible:ring-2 focus-visible:ring-emerald-500"
-              title="Send Email"
+              title={language === 'it' ? 'Invia Email' : 'Send Email'}
               aria-label="Send Email to Marco Di Palma"
             >
               <Mail className="w-4 h-4" />
@@ -172,7 +186,7 @@ const Hero = () => {
               type="button"
               onClick={() => setModalType('wa')}
               className="p-3 bg-surface border border-zinc-800 rounded-xl text-zinc-400 hover:text-emerald-400 hover:bg-zinc-800 hover:border-zinc-600 transition-all shadow-sm focus-visible:ring-2 focus-visible:ring-emerald-500"
-              title="Chat on WhatsApp"
+              title="WhatsApp"
               aria-label="Contact via WhatsApp"
             >
               <MessageCircle className="w-4 h-4" />
@@ -181,7 +195,7 @@ const Hero = () => {
               type="button"
               onClick={() => setModalType('phone')}
               className="p-3 bg-surface border border-zinc-800 rounded-xl text-zinc-400 hover:text-white hover:bg-zinc-800 hover:border-zinc-600 transition-all shadow-sm focus-visible:ring-2 focus-visible:ring-emerald-500"
-              title="Call"
+              title={language === 'it' ? 'Chiama' : 'Call'}
               aria-label="Call Marco Di Palma"
             >
               <Phone className="w-4 h-4" />
@@ -209,23 +223,28 @@ const Hero = () => {
                 <div className="w-12 h-12 rounded-xl bg-zinc-800 border border-zinc-700 flex items-center justify-center text-white mb-4">
                   <Phone className="w-5 h-5 text-emerald-400" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">Direct Phone Call</h3>
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  {language === 'it' ? 'Chiamata Telefonica' : 'Direct Phone Call'}
+                </h3>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                  Initiate a phone call to <strong className="text-zinc-200">Marco Di Palma</strong> at <span className="text-zinc-300 font-mono">+39 324 801 8615</span>?
+                  {language === 'it' 
+                    ? <>Avviare una chiamata verso <strong className="text-zinc-200">Marco Di Palma</strong> al numero <span className="text-zinc-300 font-mono">+39 324 801 8615</span>?</>
+                    : <>Initiate a phone call to <strong className="text-zinc-200">Marco Di Palma</strong> at <span className="text-zinc-300 font-mono">+39 324 801 8615</span>?</>
+                  }
                 </p>
                 <div className="flex gap-3">
                   <button 
                     onClick={() => setModalType(null)}
                     className="flex-1 px-4 py-2.5 rounded-xl border border-zinc-700 text-zinc-300 hover:bg-zinc-800 hover:text-white transition-colors text-sm font-medium"
                   >
-                    Cancel
+                    {language === 'it' ? 'Annulla' : 'Cancel'}
                   </button>
                   <a 
                     href="tel:+393248018615"
                     onClick={() => setModalType(null)}
                     className="flex-1 px-4 py-2.5 rounded-xl bg-white text-black hover:bg-zinc-200 transition-colors text-sm font-semibold text-center"
                   >
-                    Call Now
+                    {language === 'it' ? 'Chiama Ora' : 'Call Now'}
                   </a>
                 </div>
               </div>
@@ -236,23 +255,28 @@ const Hero = () => {
                 <div className="w-12 h-12 rounded-xl bg-zinc-800 border border-zinc-700 flex items-center justify-center text-white mb-4">
                   <Mail className="w-5 h-5 text-blue-400" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">Send Email</h3>
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  {language === 'it' ? 'Invia Email' : 'Send Email'}
+                </h3>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                  Open default email client to compose to <span className="text-zinc-200 font-mono text-xs">mdipalma62@gmail.com</span>?
+                  {language === 'it'
+                    ? <>Aprire il client di posta predefinito per scrivere a <span className="text-zinc-200 font-mono text-xs">mdipalma62@gmail.com</span>?</>
+                    : <>Open default email client to compose to <span className="text-zinc-200 font-mono text-xs">mdipalma62@gmail.com</span>?</>
+                  }
                 </p>
                 <div className="flex gap-3">
                   <button 
                     onClick={() => setModalType(null)}
                     className="flex-1 px-4 py-2.5 rounded-xl border border-zinc-700 text-zinc-300 hover:bg-zinc-800 hover:text-white transition-colors text-sm font-medium"
                   >
-                    Cancel
+                    {language === 'it' ? 'Annulla' : 'Cancel'}
                   </button>
                   <a 
                     href="mailto:mdipalma62@gmail.com"
                     onClick={() => setModalType(null)}
                     className="flex-1 px-4 py-2.5 rounded-xl bg-white text-black hover:bg-zinc-200 transition-colors text-sm font-semibold text-center"
                   >
-                    Open Mail
+                    {language === 'it' ? 'Apri Posta' : 'Open Mail'}
                   </a>
                 </div>
               </div>
@@ -263,16 +287,19 @@ const Hero = () => {
                 <div className="w-12 h-12 rounded-xl bg-zinc-800 border border-zinc-700 flex items-center justify-center text-white mb-4">
                   <MessageCircle className="w-5 h-5 text-emerald-400" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">WhatsApp Conversation</h3>
+                <h3 className="text-xl font-semibold text-white mb-2">WhatsApp</h3>
                 <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                  Open a direct WhatsApp chat with <span className="text-zinc-200 font-mono text-xs">+39 324 801 8615</span>?
+                  {language === 'it'
+                    ? <>Aprire una chat diretta su WhatsApp con <span className="text-zinc-200 font-mono text-xs">+39 324 801 8615</span>?</>
+                    : <>Open a direct WhatsApp chat with <span className="text-zinc-200 font-mono text-xs">+39 324 801 8615</span>?</>
+                  }
                 </p>
                 <div className="flex gap-3">
                   <button 
                     onClick={() => setModalType(null)}
                     className="flex-1 px-4 py-2.5 rounded-xl border border-zinc-700 text-zinc-300 hover:bg-zinc-800 hover:text-white transition-colors text-sm font-medium"
                   >
-                    Cancel
+                    {language === 'it' ? 'Annulla' : 'Cancel'}
                   </button>
                   <a 
                     href="https://wa.me/393248018615"
@@ -281,7 +308,7 @@ const Hero = () => {
                     onClick={() => setModalType(null)}
                     className="flex-1 px-4 py-2.5 rounded-xl bg-emerald-500 text-black hover:bg-emerald-400 transition-colors text-sm font-semibold text-center"
                   >
-                    Open Chat
+                    {language === 'it' ? 'Apri Chat' : 'Open Chat'}
                   </a>
                 </div>
               </div>

@@ -4,12 +4,31 @@ import {
   CheckCircle2, MapPin, Eye, EyeOff
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const Resume = () => {
   const [activeTab, setActiveTab] = useState('education');
   const [showPdfEmbed, setShowPdfEmbed] = useState(false);
+  const { language, t } = useLanguage();
 
-  const education = [
+  const education = language === 'it' ? [
+    {
+      degree: 'Laurea Triennale in Informatica e Tecnologie Software',
+      institution: "Università degli Studi di Bari 'Aldo Moro' (UNIBA)",
+      location: 'Bari, Italia',
+      period: '2023 — Presente (Prevista 2026)',
+      status: 'In Corso',
+      courses: [
+        'Algoritmi e Strutture Dati (C/Java Avanzato)',
+        'Reti di Calcolatori (Socket POSIX TCP/UDP & Design di Protocolli)',
+        'Sistemi Operativi (Processi, Thread, Sincronizzazione & Memoria)',
+        'Ingegneria del Software (Design Patterns, Clean Architecture, Testing)',
+        'Basi di Dati (Modellazione Relazionale, SQL & Normalizzazione)',
+        'Architettura degli Elaboratori (Assembly, Gerarchie di Memoria & HW/SW)',
+      ],
+      description: 'Percorso universitario focalizzato sulla teoria della computazione, architetture software scalabili, sistemi concorrenti e programmazione di sistema a basso livello in ambiente Unix.',
+    },
+  ] : [
     {
       degree: 'Bachelor of Science in Computer Science & Software Engineering',
       institution: "University of Bari 'Aldo Moro' (UNIBA)",
@@ -28,7 +47,30 @@ const Resume = () => {
     },
   ];
 
-  const experienceAndMilestones = [
+  const experienceAndMilestones = language === 'it' ? [
+    {
+      role: 'Sviluppatore Full-Stack & Manutentore',
+      entity: 'Piattaforma EnjoyourCoffee',
+      location: 'Remoto / Bari, Italia',
+      period: '2024 — Presente',
+      points: [
+        'Progettazione e deploy di un e-commerce di produzione per transazioni e ordini in tempo reale.',
+        'Hardening di sicurezza web contro vulnerabilità OWASP: query parametrizzate, token CSRF e rotazione sessioni sicure.',
+        'Ottimizzazione delle performance mobile e dello stato del carrello per ridurre gli abbandoni durante il checkout.',
+      ],
+    },
+    {
+      role: 'Programmatore di Sistema & Ricerca Reti Distribuite',
+      entity: 'Progetti Ingegneristici Accademici (UNIBA)',
+      location: 'Bari, Italia',
+      period: '2023 — Presente',
+      points: [
+        'Sviluppo di una suite di telemetria multi-thread in C con socket POSIX non bloccanti e multiplexing I/O.',
+        'Creazione di UniPlan, scheduler accademico combinatorio basato su grafi DAG per propedeuticità e risolutore CSP.',
+        'Implementazione gestionale desktop in C con strutture dati lineari dinamiche e zero memory leak verificati su Valgrind.',
+      ],
+    },
+  ] : [
     {
       role: 'Full-Stack Software Developer & Maintainer',
       entity: 'EnjoyourCoffee Platform',
@@ -55,36 +97,42 @@ const Resume = () => {
 
   const competencies = [
     {
-      category: 'Low-Level Systems & Programming',
+      category: language === 'it' ? 'Sistemi a Basso Livello & C' : 'Low-Level Systems & Programming',
       skills: ['C (C99/C11)', 'POSIX Sockets', 'Multithreading (pthreads)', 'Dynamic Memory Allocation', 'Valgrind Profiling', 'I/O Multiplexing', 'Linux / Unix CLI'],
     },
     {
-      category: 'Backend & Web Technologies',
+      category: language === 'it' ? 'Tecnologie Backend & Web' : 'Backend & Web Technologies',
       skills: ['TypeScript', 'JavaScript (ES6+)', 'Node.js', 'Fastify', 'React 18 / 19', 'Prisma ORM', 'RESTful API Architecture', 'Zod Validation'],
     },
     {
-      category: 'Database & Data Modeling',
+      category: language === 'it' ? 'Database & Modellazione Dati' : 'Database & Data Modeling',
       skills: ['PostgreSQL', 'Relational Schema Design', 'Query Optimization', 'Transactions & ACID', 'Prisma Schema Migrations'],
     },
     {
-      category: 'DevOps, Testing & Tooling',
+      category: language === 'it' ? 'DevOps, Testing & Strumenti' : 'DevOps, Testing & Tooling',
       skills: ['Git & GitHub Workflows', 'Vitest / Unit Testing', 'Docker & Compose', 'Doxygen Documentation', 'Vite Bundler', 'Tailwind CSS', 'CI/CD Basics'],
     },
   ];
 
   const certificationsAndLanguages = [
     {
-      title: 'Languages',
+      title: language === 'it' ? 'Lingue' : 'Languages',
       items: [
-        { name: 'Italian', level: 'Native proficiency' },
-        { name: 'English', level: 'Professional Working Proficiency (B2/C1 — Technical documentation, code review & collaboration)' },
+        { name: language === 'it' ? 'Italiano' : 'Italian', level: language === 'it' ? 'Madrelingua' : 'Native proficiency' },
+        { name: language === 'it' ? 'Inglese' : 'English', level: language === 'it' ? 'Competenza Professionale Operativa (B2/C1)' : 'Professional Working Proficiency (B2/C1)' },
       ],
     },
     {
-      title: 'Academic Honors & Focus',
+      title: language === 'it' ? 'Percorso & Traguardi Accademici' : 'Academic Honors & Focus',
       items: [
-        { name: 'Computer Networks Laboratory', level: 'Top Evaluation (Multi-Protocol C Architecture)' },
-        { name: 'Software Engineering Project Lab', level: 'Focus on Clean Architecture & Test-Driven Development' },
+        { 
+          name: language === 'it' ? 'Laboratorio di Reti di Calcolatori' : 'Computer Networks Laboratory', 
+          level: language === 'it' ? 'Valutazione massima (Architettura C Multi-Protocollo)' : 'Top Evaluation (Multi-Protocol C Architecture)' 
+        },
+        { 
+          name: language === 'it' ? 'Laboratorio di Ingegneria del Software' : 'Software Engineering Project Lab', 
+          level: language === 'it' ? 'Focus su Clean Architecture & TDD' : 'Focus on Clean Architecture & Test-Driven Development' 
+        },
       ],
     },
   ];
@@ -96,53 +144,59 @@ const Resume = () => {
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-zinc-800 text-xs font-mono text-zinc-400 mb-3">
             <FileText className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Curriculum Vitae</span>
+            <span>{t.cv.title}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-2">
-            Education, Experience & Skills
+            {language === 'it' ? 'Formazione, Esperienze & Competenze' : 'Education, Experience & Skills'}
           </h2>
           <p className="text-zinc-400 max-w-xl text-sm sm:text-base leading-relaxed">
-            Curated resume profile emphasizing academic training at the University of Bari, 
-            core technical capabilities, and software milestones.
+            {t.cv.description}
           </p>
         </div>
 
-        {/* Action Buttons: Download PDF & Toggle Embed */}
-        <div className="flex flex-wrap items-center gap-3">
-          {/* Primary CTA: Download PDF */}
-          <a
-            href="/Marco_Di_Palma_CV.pdf"
-            download="Marco_Di_Palma_CV.pdf"
-            aria-label="Download Marco Di Palma CV in PDF format"
-            className="group inline-flex items-center gap-2.5 bg-white text-black hover:bg-zinc-200 px-5 py-3 rounded-xl font-semibold text-sm transition-all shadow-md active:scale-95 focus-visible:ring-2 focus-visible:ring-emerald-500"
-          >
-            <Download className="w-4 h-4 text-emerald-600 group-hover:translate-y-0.5 transition-transform" />
-            <span>Download CV (PDF)</span>
-          </a>
+        {/* Action Buttons: Single Static PDF Asset + Toggle Embed */}
+        <div className="flex flex-wrap items-center gap-4">
+          {/* Primary CTA: Single Static PDF Download with Language Disclaimer */}
+          <div className="flex flex-col items-start gap-1">
+            <a
+              href="/Marco_Di_Palma_CV.pdf"
+              download="Marco_Di_Palma_CV.pdf"
+              aria-label={`Download Marco Di Palma CV in PDF format (${t.cv.cvNotice})`}
+              className="group inline-flex items-center gap-2.5 bg-white text-black hover:bg-zinc-200 px-5 py-3 rounded-xl font-semibold text-sm transition-all shadow-md active:scale-95 focus-visible:ring-2 focus-visible:ring-emerald-500"
+            >
+              <Download className="w-4 h-4 text-emerald-600 group-hover:translate-y-0.5 transition-transform" />
+              <span>{t.cv.cvButton}</span>
+            </a>
+            {t.cv.cvNotice && (
+              <span className="text-[11px] font-mono text-zinc-400 pl-1">
+                {t.cv.cvNotice}
+              </span>
+            )}
+          </div>
 
           {/* Toggle PDF Embed Viewer */}
           <button
             type="button"
             onClick={() => setShowPdfEmbed(!showPdfEmbed)}
-            aria-label={showPdfEmbed ? "Hide embedded PDF preview" : "Show embedded PDF preview"}
+            aria-label={showPdfEmbed ? t.cv.hideDoc : t.cv.previewDoc}
             className="inline-flex items-center gap-2 px-4 py-3 rounded-xl border border-zinc-700 bg-surface/80 text-zinc-300 hover:text-white hover:bg-zinc-800 transition-all text-sm font-medium focus-visible:ring-2 focus-visible:ring-emerald-500"
           >
             {showPdfEmbed ? (
               <>
                 <EyeOff className="w-4 h-4" />
-                <span>Hide Document</span>
+                <span>{t.cv.hideDoc}</span>
               </>
             ) : (
               <>
                 <Eye className="w-4 h-4 text-emerald-400" />
-                <span>Preview Document</span>
+                <span>{t.cv.previewDoc}</span>
               </>
             )}
           </button>
         </div>
       </div>
 
-      {/* Optional Embedded PDF Viewer */}
+      {/* Optional Embedded PDF Viewer (Single Static Asset) */}
       <AnimatePresence>
         {showPdfEmbed && (
           <motion.div
@@ -163,7 +217,7 @@ const Resume = () => {
                   className="text-xs font-medium text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1"
                 >
                   <Download className="w-3.5 h-3.5" />
-                  Download Copy
+                  {t.cv.cvButton}
                 </a>
               </div>
               <div className="bg-[#18181b] p-2 rounded-b-[calc(1.5rem-4px)]">
@@ -180,7 +234,7 @@ const Resume = () => {
                       className="inline-flex items-center gap-2 bg-white text-black px-5 py-2.5 rounded-xl font-medium text-sm"
                     >
                       <Download className="w-4 h-4" />
-                      Download PDF to view locally
+                      {t.cv.cvButton}
                     </a>
                   </div>
                 </object>
@@ -201,7 +255,7 @@ const Resume = () => {
           }`}
         >
           <GraduationCap className="w-4 h-4 text-emerald-400" />
-          <span>Education & Coursework</span>
+          <span>{t.cv.educationTab}</span>
         </button>
 
         <button
@@ -213,7 +267,7 @@ const Resume = () => {
           }`}
         >
           <Award className="w-4 h-4 text-blue-400" />
-          <span>Technical Competencies</span>
+          <span>{t.cv.competenciesTab}</span>
         </button>
 
         <button
@@ -225,7 +279,7 @@ const Resume = () => {
           }`}
         >
           <Briefcase className="w-4 h-4 text-purple-400" />
-          <span>Experience & Milestones</span>
+          <span>{t.cv.experienceTab}</span>
         </button>
 
         <button
@@ -237,7 +291,7 @@ const Resume = () => {
           }`}
         >
           <Languages className="w-4 h-4 text-amber-400" />
-          <span>Languages & Honors</span>
+          <span>{t.cv.languagesTab}</span>
         </button>
       </div>
 
@@ -285,7 +339,7 @@ const Resume = () => {
 
                   <div>
                     <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-400 mb-3">
-                      Core Academic Coursework & Labs:
+                      {language === 'it' ? 'Corsi Fondamentali & Laboratori Accademici:' : 'Core Academic Coursework & Labs:'}
                     </h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
                       {item.courses.map((course, cIdx) => (

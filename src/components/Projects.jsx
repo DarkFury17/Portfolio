@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ArrowUpRight, Github, ExternalLink, Code } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const cardVariants = {
   hidden: { opacity: 0, y: 24 },
@@ -13,54 +14,55 @@ const cardVariants = {
 
 const Projects = () => {
   const [selectedFilter, setSelectedFilter] = useState('all');
+  const { language, t } = useLanguage();
 
   const projects = [
     { 
       id: '01', 
-      title: 'Weather Station Networking Suite', 
-      domain: 'Systems & Network Architecture',
+      title: t.projects.weatherStation.title, 
+      domain: language === 'it' ? 'Architettura Reti & Sistemi' : 'Systems & Network Architecture',
       category: 'systems',
-      architecture: 'Engineered a concurrent client-server telemetry suite in pure C using POSIX sockets. Architected a hybrid protocol pipeline: non-blocking UDP datagrams handle high-throughput, low-latency sensor telemetry, while TCP streams provide reliable state synchronization, connection persistence, and control signaling.',
-      keyDecisions: 'Non-blocking I/O multiplexing, custom binary packet serialization, POSIX signal handling for graceful shutdown, and zero packet fragmentation across network interfaces.',
+      architecture: t.projects.weatherStation.desc,
+      keyDecisions: t.projects.weatherStation.highlights,
       badges: ['C (C99)', 'POSIX Sockets', 'TCP / UDP', 'Multithreading', 'I/O Multiplexing', 'Distributed Systems'],
       liveLink: null,
-      liveLabel: 'Headless Architecture',
+      liveLabel: language === 'it' ? 'Architettura Headless' : 'Headless Architecture',
       githubUrl: 'https://github.com/DarkFury17/weather-station-networking-suite',
     },
     { 
       id: '02', 
-      title: 'UniPlan — Academic Exam Scheduler', 
-      domain: 'Algorithmic Optimization & Full-Stack',
+      title: t.projects.uniplan.title, 
+      domain: language === 'it' ? 'Ottimizzazione Algoritmica & Full-Stack' : 'Algorithmic Optimization & Full-Stack',
       category: 'fullstack',
-      architecture: 'Full-stack combinatorial scheduling platform modeling university degree requirements as Directed Acyclic Graphs (DAGs) to enforce course prerequisites. Resolves exam date collisions through a Constraint Satisfaction Problem (CSP) solver, computing backward study-load distributions.',
-      keyDecisions: 'Decoupled Clean Architecture engine, Zod-validated Fastify REST API, automated RFC 5545 iCalendar streams, and an exhaustive 52-test Vitest test suite.',
+      architecture: t.projects.uniplan.desc,
+      keyDecisions: t.projects.uniplan.highlights,
       badges: ['TypeScript', 'Fastify 5', 'React', 'Prisma ORM', 'Zod', 'Vitest (52 Tests)', 'RFC 5545 iCal'],
       liveLink: 'https://github.com/DarkFury17/UniPlan',
-      liveLabel: 'Repository & Tests',
+      liveLabel: language === 'it' ? 'Repository & Test' : 'Repository & Tests',
       githubUrl: 'https://github.com/DarkFury17/UniPlan',
     },
     { 
       id: '03', 
-      title: 'EnjoyourCoffee E-Commerce', 
-      domain: 'Full-Stack E-Commerce & Security',
+      title: t.projects.enjoyourcoffee.title, 
+      domain: language === 'it' ? 'E-Commerce Full-Stack & Sicurezza' : 'Full-Stack E-Commerce & Security',
       category: 'fullstack',
-      architecture: 'Production e-commerce platform designed for resilient commercial operations, live orders, and catalog lifecycle. Built with hardened session persistence, parameterized SQL query structures to prevent injection vectors, and CSRF token defenses.',
-      keyDecisions: 'Role-based access control (RBAC), client-side optimistic cart mutations, responsive checkout pipeline with payment gateway integration, and WCAG AA accessibility compliance.',
+      architecture: t.projects.enjoyourcoffee.desc,
+      keyDecisions: t.projects.enjoyourcoffee.highlights,
       badges: ['React', 'JavaScript', 'Node.js', 'Tailwind CSS', 'OWASP Hardening', 'REST API', 'Payment Flow'],
       liveLink: 'https://enjoyourcoffee.it',
-      liveLabel: 'Live Platform',
+      liveLabel: language === 'it' ? 'Piattaforma Live' : 'Live Platform',
       githubUrl: 'https://github.com/DarkFury17/EnjoyourCoffee.git',
     },
     { 
       id: '04', 
-      title: 'Pet Shop Management System', 
-      domain: 'Systems Software & Algorithms',
+      title: t.projects.petshop.title, 
+      domain: language === 'it' ? 'Software di Sistema & Algoritmi' : 'Systems Software & Algorithms',
       category: 'systems',
-      architecture: 'Desktop inventory and transaction engine implemented in low-level C. Constructs custom dynamic linear data structures (singly and doubly linked lists) to manage product nodes, order pipelines, and stock updates with atomic file serialization.',
-      keyDecisions: '100% memory leak elimination verified under Valgrind, robust file-based data persistence with error recovery, and comprehensive API documentation generated via Doxygen.',
+      architecture: t.projects.petshop.desc,
+      keyDecisions: t.projects.petshop.highlights,
       badges: ['C Programming', 'Dynamic Data Structures', 'Valgrind', 'Memory Management', 'File I/O', 'Doxygen'],
       liveLink: null,
-      liveLabel: 'CLI / Desktop System',
+      liveLabel: language === 'it' ? 'Sistema Desktop / CLI' : 'CLI / Desktop System',
       githubUrl: 'https://github.com/DarkFury17/Pet-Shop-Management-System',
     },
   ];
@@ -76,14 +78,13 @@ const Projects = () => {
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-zinc-800 text-xs font-mono text-zinc-400 mb-3">
             <Code className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Featured Engineering</span>
+            <span>{language === 'it' ? 'Progetti Ingegneristici' : 'Featured Engineering'}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-2">
-            Selected Software Projects
+            {t.projects.title}
           </h2>
           <p className="text-zinc-400 max-w-xl text-sm sm:text-base leading-relaxed">
-            Concrete engineering systems emphasizing low-level networking, algorithmic optimization, 
-            robust data structures, and production-grade web security.
+            {t.projects.subtitle}
           </p>
         </div>
 
@@ -97,7 +98,7 @@ const Projects = () => {
                 : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >
-            All Work ({projects.length})
+            {t.projects.allFilter} ({projects.length})
           </button>
           <button
             onClick={() => setSelectedFilter('systems')}
@@ -107,7 +108,7 @@ const Projects = () => {
                 : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >
-            Systems & C
+            {t.projects.systemsFilter}
           </button>
           <button
             onClick={() => setSelectedFilter('fullstack')}
@@ -117,7 +118,7 @@ const Projects = () => {
                 : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >
-            Full-Stack Web
+            {t.projects.webFilter}
           </button>
         </div>
       </div>
@@ -177,7 +178,7 @@ const Projects = () => {
                 <div className="space-y-3 mb-6">
                   <div>
                     <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-400 mb-1">
-                      Problem & Architecture
+                      {t.projects.problemArch}
                     </h4>
                     <p className="text-zinc-300 text-sm leading-relaxed">
                       {proj.architecture}
@@ -186,7 +187,7 @@ const Projects = () => {
 
                   <div>
                     <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-400 mb-1">
-                      Implementation Highlights
+                      {t.projects.implementation}
                     </h4>
                     <p className="text-zinc-400 text-xs leading-relaxed">
                       {proj.keyDecisions}
@@ -218,10 +219,10 @@ const Projects = () => {
                   className="flex-1 inline-flex items-center justify-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-white px-4 py-2.5 rounded-xl font-medium text-xs sm:text-sm border border-zinc-700 transition-all active:scale-95 focus-visible:ring-2 focus-visible:ring-emerald-500"
                 >
                   <Github className="w-4 h-4" />
-                  <span>Source Code</span>
+                  <span>{t.projects.sourceCode}</span>
                 </a>
 
-                {/* Live Demo or Release Notes CTA */}
+                {/* Live Demo or Architecture Notes CTA */}
                 {proj.liveLink ? (
                   <a 
                     href={proj.liveLink}
@@ -230,7 +231,7 @@ const Projects = () => {
                     aria-label={`Open live deployment for ${proj.title}`}
                     className="flex-1 inline-flex items-center justify-center gap-2 bg-white text-black hover:bg-zinc-200 px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm transition-all active:scale-95 focus-visible:ring-2 focus-visible:ring-emerald-500"
                   >
-                    <span>Visit Live</span>
+                    <span>{t.projects.liveDemo}</span>
                     <ArrowUpRight className="w-4 h-4" />
                   </a>
                 ) : (
@@ -240,7 +241,7 @@ const Projects = () => {
                     rel="noopener noreferrer"
                     className="flex-1 inline-flex items-center justify-center gap-2 bg-zinc-900 text-zinc-400 hover:text-zinc-200 px-4 py-2.5 rounded-xl font-medium text-xs sm:text-sm border border-zinc-800 transition-all focus-visible:ring-2 focus-visible:ring-emerald-500"
                   >
-                    <span>Architecture Docs</span>
+                    <span>{t.projects.archDocs}</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 )}
