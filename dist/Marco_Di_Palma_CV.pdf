@@ -1,0 +1,181 @@
+%PDF-1.4
+1 0 obj
+<<
+  /Type /Catalog
+  /Pages 2 0 R
+>>
+endobj
+2 0 obj
+<<
+  /Type /Pages
+  /Kids [3 0 R]
+  /Count 1
+>>
+endobj
+3 0 obj
+<<
+  /Type /Page
+  /Parent 2 0 R
+  /MediaBox [0 0 612 792]
+  /Resources <<
+    /Font <<
+      /F1 4 0 R
+      /F2 5 0 R
+      /F3 6 0 R
+    >>
+  >>
+  /Contents 7 0 R
+>>
+endobj
+4 0 obj
+<<
+  /Type /Font
+  /Subtype /Type1
+  /BaseFont /Helvetica-Bold
+>>
+endobj
+5 0 obj
+<<
+  /Type /Font
+  /Subtype /Type1
+  /BaseFont /Helvetica
+>>
+endobj
+6 0 obj
+<<
+  /Type /Font
+  /Subtype /Type1
+  /BaseFont /Helvetica-Oblique
+>>
+endobj
+7 0 obj
+<<
+  /Length 3850
+>>
+stream
+BT
+/F1 22 Tf
+50 740 Td
+(MARCO DI PALMA) Tj
+/F1 11 Tf
+0 -18 Td
+(Software Engineer & Computer Science Student) Tj
+/F2 9.5 Tf
+0 -14 Td
+(Email: mdipalma62@gmail.com  |  Phone: +39 324 801 8615  |  Location: Bari, Italy) Tj
+0 -13 Td
+(GitHub: github.com/DarkFury17  |  LinkedIn: linkedin.com/in/dipalmamarco  |  Portfolio: portfolio-dipalma.netlify.app) Tj
+
+0 -22 Td
+/F1 12 Tf
+(PROFESSIONAL SUMMARY) Tj
+/F2 9.5 Tf
+0 -14 Td
+(Undergraduate Computer Science student at University of Bari 'Aldo Moro' with strong foundations in low-level) Tj
+0 -12 Td
+(systems programming, network architectures, and secure full-stack software development. Passionate about) Tj
+0 -12 Td
+(concurrent POSIX sockets, algorithmic efficiency, clean architecture, and building production-grade web systems.) Tj
+
+0 -20 Td
+/F1 12 Tf
+(EDUCATION) Tj
+/F1 10 Tf
+0 -15 Td
+(Bachelor of Science in Computer Science & Software Engineering) Tj
+/F2 9.5 Tf
+0 -13 Td
+(University of Bari 'Aldo Moro' (UNIBA)  |  2023 - Present) Tj
+/F3 9 Tf
+0 -12 Td
+(Relevant Coursework: Algorithms & Data Structures, Computer Networks, Operating Systems, Software Engineering,) Tj
+0 -11 Td
+(Database Management Systems, Computer Architecture, Object-Oriented Programming.) Tj
+
+0 -20 Td
+/F1 12 Tf
+(CORE TECHNICAL COMPETENCIES) Tj
+/F2 9.5 Tf
+0 -14 Td
+(- Languages & Systems: C (C99/C11), POSIX Sockets, Multithreading, TypeScript, JavaScript (ES6+), SQL, HTML5/CSS3) Tj
+0 -13 Td
+(- Backend & Web: Node.js, Fastify, React, Next.js concepts, Prisma ORM, RESTful API Design, Clean Architecture) Tj
+0 -13 Td
+(- Systems & Security: Network Protocols (TCP/UDP), I/O Multiplexing, OWASP Hardening, Valgrind, Memory Management) Tj
+0 -13 Td
+(- Tools & DevOps: Git, Docker, Linux/Unix CLI, Vite, Vitest, Doxygen, Postman, Tailwind CSS) Tj
+
+0 -20 Td
+/F1 12 Tf
+(KEY SOFTWARE PROJECTS) Tj
+/F1 10 Tf
+0 -15 Td
+(Weather Station Networking Suite | Low-Level C & Distributed Networking) Tj
+/F2 9.5 Tf
+0 -12 Td
+(- Designed a concurrent telemetry architecture in C using POSIX sockets for heterogeneous sensor transmission.) Tj
+0 -12 Td
+(- Implemented UDP datagrams for non-blocking high-throughput ingestion and TCP streams for state synchronization.) Tj
+0 -12 Td
+(- Source: github.com/DarkFury17/weather-station-networking-suite) Tj
+
+/F1 10 Tf
+0 -16 Td
+(UniPlan - Intelligent Academic Study Planner | TypeScript, Fastify, React) Tj
+/F2 9.5 Tf
+0 -12 Td
+(- Architected a combinatorial exam planner modeling university curricula as Directed Acyclic Graphs (DAG).) Tj
+0 -12 Td
+(- Formulated exam scheduling as a Constraint Satisfaction Problem (CSP) with backward study-load heuristics.) Tj
+0 -12 Td
+(- Built REST API in Fastify with Zod validation schemas, Prisma ORM, Vitest suite (52 tests), and RFC 5545 iCal export.) Tj
+
+/F1 10 Tf
+0 -16 Td
+(EnjoyourCoffee | Production Full-Stack E-Commerce Platform) Tj
+/F2 9.5 Tf
+0 -12 Td
+(- Developed a scalable online store with responsive catalog browsing, cart state management, and checkout flows.) Tj
+0 -12 Td
+(- Hardened web security against OWASP vulnerabilities: parameterized SQL queries, session management, CSRF guards.) Tj
+0 -12 Td
+(- Live: enjoyourcoffee.it  |  Source: github.com/DarkFury17/EnjoyourCoffee) Tj
+
+/F1 10 Tf
+0 -16 Td
+(Pet Shop Management System | C & Dynamic Data Structures) Tj
+/F2 9.5 Tf
+0 -12 Td
+(- Implemented inventory software in C utilizing dynamically allocated linked lists with atomic file persistence.) Tj
+0 -12 Td
+(- Validated 100% memory safety and zero leaks using Valgrind; authored complete technical documentation via Doxygen.) Tj
+0 -12 Td
+(- Source: github.com/DarkFury17/Pet-Shop-Management-System) Tj
+
+0 -20 Td
+/F1 12 Tf
+(LANGUAGES) Tj
+/F2 9.5 Tf
+0 -14 Td
+(- Italian: Native  |  English: Professional Working Proficiency (Technical documentation, code review, oral)) Tj
+ET
+endstream
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000062 00000 n 
+0000000125 00000 n 
+0000000309 00000 n 
+0000000390 00000 n 
+0000000466 00000 n 
+0000000550 00000 n 
+trailer
+<<
+  /Size 8
+  /Root 1 0 R
+>>
+startxref
+4376
+%%EOF

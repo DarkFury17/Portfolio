@@ -1,32 +1,25 @@
-import React from 'react';
+import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Projects from './components/Projects';
+import Resume from './components/Resume';
 import Skills from './components/Skills';
 import MyBuild from './components/MyBuild';
-import Projects from './components/Projects';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen text-zinc-100 bg-background selection:bg-zinc-800 pb-20">
-      <nav className="fixed w-full z-50 top-0 left-0 glass-panel border-b-0">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="text-sm font-semibold tracking-wide text-zinc-100">
-            Marco Di Palma
-          </div>
-          <div className="hidden md:flex gap-8 text-sm font-medium text-zinc-400">
-            <a href="#hero" className="hover:text-zinc-100 transition-colors duration-300">Home</a>
-            <a href="#projects" className="hover:text-zinc-100 transition-colors duration-300">Work</a>
-            <a href="#skills" className="hover:text-zinc-100 transition-colors duration-300">Skills</a>
-            <a href="#build" className="hover:text-zinc-100 transition-colors duration-300">Setup</a>
-          </div>
-        </div>
-      </nav>
+    <div className="min-h-screen text-zinc-100 bg-background selection:bg-zinc-800 selection:text-white flex flex-col justify-between">
+      <Navbar />
 
-      <main className="pt-24 max-w-6xl mx-auto px-6 space-y-32">
+      <main className="pt-24 sm:pt-28 max-w-6xl mx-auto px-4 sm:px-6 w-full space-y-16 sm:space-y-24">
         <Hero />
         <Projects />
+        <Resume />
         <Skills />
         <MyBuild />
       </main>
+
+      <Footer />
     </div>
   );
 }
