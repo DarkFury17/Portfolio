@@ -155,24 +155,17 @@ const Resume = () => {
         </div>
 
         {/* Action Buttons: Single Static PDF Asset + Toggle Embed */}
-        <div className="flex flex-wrap items-center gap-4">
-          {/* Primary CTA: Single Static PDF Download with Language Disclaimer */}
-          <div className="flex flex-col items-start gap-1">
-            <a
-              href="/Marco_Di_Palma_CV.pdf"
-              download="Marco_Di_Palma_CV.pdf"
-              aria-label={`Download Marco Di Palma CV in PDF format (${t.cv.cvNotice})`}
-              className="group inline-flex items-center gap-2.5 bg-white text-black hover:bg-zinc-200 px-5 py-3 rounded-xl font-semibold text-sm transition-all shadow-md active:scale-95 focus-visible:ring-2 focus-visible:ring-emerald-500"
-            >
-              <Download className="w-4 h-4 text-emerald-600 group-hover:translate-y-0.5 transition-transform" />
-              <span>{t.cv.cvButton}</span>
-            </a>
-            {t.cv.cvNotice && (
-              <span className="text-[11px] font-mono text-zinc-400 pl-1">
-                {t.cv.cvNotice}
-              </span>
-            )}
-          </div>
+        <div className="flex flex-wrap items-center gap-3">
+          {/* Primary CTA: Single Static PDF Download */}
+          <a
+            href="/Marco_Di_Palma_CV.pdf"
+            download="Marco_Di_Palma_CV.pdf"
+            aria-label="Download Marco Di Palma CV in PDF format"
+            className="group inline-flex items-center gap-2.5 bg-white text-black hover:bg-zinc-200 px-5 py-3 rounded-xl font-semibold text-sm transition-all shadow-md active:scale-95 focus-visible:ring-2 focus-visible:ring-emerald-500"
+          >
+            <Download className="w-4 h-4 text-emerald-600 group-hover:translate-y-0.5 transition-transform" />
+            <span>{t.cv.cvButton}</span>
+          </a>
 
           {/* Toggle PDF Embed Viewer */}
           <button
