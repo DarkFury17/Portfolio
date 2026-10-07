@@ -37,8 +37,8 @@ const Projects = () => {
       architecture: t.projects.uniplan.desc,
       keyDecisions: t.projects.uniplan.highlights,
       badges: ['TypeScript', 'Fastify 5', 'React', 'Prisma ORM', 'Zod', 'Vitest (52 Tests)', 'RFC 5545 iCal'],
-      liveLink: 'https://github.com/DarkFury17/UniPlan',
-      liveLabel: language === 'it' ? 'Repository & Test' : 'Repository & Tests',
+      liveLink: 'https://uni-plan-mocha.vercel.app/',
+      liveLabel: language === 'it' ? 'Live Demo' : 'Live Demo',
       githubUrl: 'https://github.com/DarkFury17/UniPlan',
     },
     { 
