@@ -42,30 +42,30 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-4 pointer-events-none">
+    <header className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 py-3 sm:py-4 pointer-events-none">
       <nav 
         aria-label="Main Navigation"
         className={`max-w-6xl mx-auto rounded-2xl transition-all duration-300 pointer-events-auto ${
           scrolled 
-            ? 'glass-panel shadow-2xl py-3 px-5 border border-white/10' 
-            : 'bg-surface/80 backdrop-blur-md py-3.5 px-6 border border-zinc-800/80 shadow-lg'
+            ? 'glass-panel shadow-2xl py-2.5 px-3.5 sm:py-3 sm:px-5 border border-white/10' 
+            : 'bg-surface/80 backdrop-blur-md py-3 px-3.5 sm:py-3.5 sm:px-6 border border-zinc-800/80 shadow-lg'
         }`}
       >
         <div className="flex items-center justify-between">
           {/* Logo / Monogram */}
           <a 
             href="#hero" 
-            className="flex items-center gap-3 text-zinc-100 font-semibold tracking-tight hover:text-white transition-colors group focus-visible:ring-2 focus-visible:ring-emerald-500 rounded-lg p-1"
+            className="flex items-center gap-2.5 sm:gap-3 text-zinc-100 font-semibold tracking-tight hover:text-white transition-colors group focus-visible:ring-2 focus-visible:ring-emerald-500 rounded-lg p-1 min-w-0"
           >
-            <div className="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-700/80 flex items-center justify-center text-xs font-mono font-bold text-white shadow-inner group-hover:border-zinc-500 transition-colors">
+            <div className="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-700/80 flex items-center justify-center text-xs font-mono font-bold text-white shadow-inner group-hover:border-zinc-500 transition-colors shrink-0">
               M
             </div>
-            <div className="flex flex-col">
-              <span className="text-sm font-semibold tracking-tight leading-none text-zinc-100">
+            <div className="flex flex-col min-w-0">
+              <span className="text-sm font-semibold tracking-tight leading-none text-zinc-100 truncate">
                 Marco Di Palma
               </span>
-              <span className="text-[10px] font-mono text-zinc-400 leading-tight mt-0.5 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="text-[10px] font-mono text-zinc-400 leading-tight mt-0.5 flex items-center gap-1.5 truncate">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
                 Software Engineer
               </span>
             </div>
@@ -85,13 +85,13 @@ const Navbar = () => {
           </div>
 
           {/* Right Action: Language Switcher, Download CV & Mobile Toggle */}
-          <div className="flex items-center gap-2.5 sm:gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             {/* Language Toggle Button */}
             <button
               type="button"
               onClick={toggleLanguage}
               aria-label={`Switch language to ${language === 'en' ? 'Italian' : 'English'}`}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono font-semibold bg-surface border border-zinc-700/80 hover:border-zinc-500 text-zinc-300 hover:text-white transition-all shadow-sm focus-visible:ring-2 focus-visible:ring-emerald-500 cursor-pointer"
+              className="flex items-center gap-1 sm:gap-1.5 px-2 py-1.5 sm:px-2.5 rounded-lg text-xs font-mono font-semibold bg-surface border border-zinc-700/80 hover:border-zinc-500 text-zinc-300 hover:text-white transition-all shadow-sm focus-visible:ring-2 focus-visible:ring-emerald-500 cursor-pointer"
               title={language === 'en' ? 'Passa alla lingua italiana' : 'Switch to English'}
             >
               <Globe className="w-3.5 h-3.5 text-zinc-400" />
@@ -135,7 +135,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden pointer-events-auto max-w-6xl mx-auto mt-2 rounded-2xl glass-panel border border-white/10 p-5 shadow-2xl"
+            className="md:hidden pointer-events-auto max-w-6xl mx-auto mt-2 rounded-2xl glass-panel border border-white/10 p-5 shadow-2xl max-h-[calc(100dvh-5rem)] overflow-y-auto"
           >
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => (

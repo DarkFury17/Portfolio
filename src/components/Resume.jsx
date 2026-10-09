@@ -138,9 +138,9 @@ const Resume = () => {
   ];
 
   return (
-    <section id="resume" className="py-16 scroll-mt-24">
+    <section id="resume" className="py-12 sm:py-16 scroll-mt-24">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pb-6 border-b border-zinc-800/80">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-12 pb-6 border-b border-zinc-800/80">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-zinc-800 text-xs font-mono text-zinc-400 mb-3">
             <FileText className="w-3.5 h-3.5 text-emerald-400" />
@@ -155,13 +155,13 @@ const Resume = () => {
         </div>
 
         {/* Action Buttons: Single Static PDF Asset + Toggle Embed */}
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
           {/* Primary CTA: Single Static PDF Download */}
           <a
             href="/Marco_Di_Palma_CV.pdf"
             download="Marco_Di_Palma_CV.pdf"
             aria-label="Download Marco Di Palma CV in PDF format"
-            className="group inline-flex items-center gap-2.5 bg-white text-black hover:bg-zinc-200 px-5 py-3 rounded-xl font-semibold text-sm transition-all shadow-md active:scale-95 focus-visible:ring-2 focus-visible:ring-emerald-500"
+            className="group flex-1 sm:flex-none inline-flex items-center justify-center gap-2.5 bg-white text-black hover:bg-zinc-200 px-4 sm:px-5 py-3 rounded-xl font-semibold text-sm transition-all shadow-md active:scale-95 focus-visible:ring-2 focus-visible:ring-emerald-500 whitespace-nowrap"
           >
             <Download className="w-4 h-4 text-emerald-600 group-hover:translate-y-0.5 transition-transform" />
             <span>{t.cv.cvButton}</span>
@@ -172,7 +172,7 @@ const Resume = () => {
             type="button"
             onClick={() => setShowPdfEmbed(!showPdfEmbed)}
             aria-label={showPdfEmbed ? t.cv.hideDoc : t.cv.previewDoc}
-            className="inline-flex items-center gap-2 px-4 py-3 rounded-xl border border-zinc-700 bg-surface/80 text-zinc-300 hover:text-white hover:bg-zinc-800 transition-all text-sm font-medium focus-visible:ring-2 focus-visible:ring-emerald-500"
+            className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-3.5 sm:px-4 py-3 rounded-xl border border-zinc-700 bg-surface/80 text-zinc-300 hover:text-white hover:bg-zinc-800 transition-all text-sm font-medium focus-visible:ring-2 focus-visible:ring-emerald-500 whitespace-nowrap"
           >
             {showPdfEmbed ? (
               <>
@@ -196,28 +196,28 @@ const Resume = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="mb-12 overflow-hidden"
+            className="mb-8 sm:mb-12 overflow-hidden"
           >
-            <div className="p-1 rounded-3xl bg-surface border border-zinc-700 shadow-2xl">
-              <div className="flex items-center justify-between px-6 py-3 border-b border-zinc-800 bg-[#0d0d11] rounded-t-[calc(1.5rem-4px)]">
+            <div className="p-1 rounded-2xl sm:rounded-3xl bg-surface border border-zinc-700 shadow-2xl">
+              <div className="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-zinc-800 bg-[#0d0d11] rounded-t-[calc(1rem-2px)] sm:rounded-t-[calc(1.5rem-4px)]">
                 <div className="flex items-center gap-2 text-xs font-mono text-zinc-400">
                   <FileText className="w-4 h-4 text-emerald-400" />
-                  <span>Marco_Di_Palma_CV.pdf (Document Viewer)</span>
+                  <span className="truncate">Marco_Di_Palma_CV.pdf (Document Viewer)</span>
                 </div>
                 <a
                   href="/Marco_Di_Palma_CV.pdf"
                   download="Marco_Di_Palma_CV.pdf"
-                  className="text-xs font-medium text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1"
+                  className="text-xs font-medium text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1 shrink-0"
                 >
                   <Download className="w-3.5 h-3.5" />
-                  {t.cv.cvButton}
+                  <span>{t.cv.cvButton}</span>
                 </a>
               </div>
-              <div className="bg-[#18181b] p-2 rounded-b-[calc(1.5rem-4px)]">
+              <div className="bg-[#18181b] p-1.5 sm:p-2 rounded-b-[calc(1rem-2px)] sm:rounded-b-[calc(1.5rem-4px)]">
                 <object
                   data="/Marco_Di_Palma_CV.pdf"
                   type="application/pdf"
-                  className="w-full h-[650px] rounded-xl border border-zinc-800"
+                  className="w-full h-[450px] sm:h-[650px] rounded-xl border border-zinc-800"
                 >
                   <div className="p-8 text-center text-zinc-300 flex flex-col items-center justify-center gap-4 h-full">
                     <p>PDF preview is not supported directly in your browser.</p>
@@ -238,10 +238,10 @@ const Resume = () => {
       </AnimatePresence>
 
       {/* Interactive Tabs Header */}
-      <div className="flex flex-wrap gap-2 mb-8 p-1.5 bg-surface/70 border border-zinc-800/80 rounded-2xl w-fit">
+      <div className="w-full sm:w-fit flex overflow-x-auto no-scrollbar gap-1.5 sm:gap-2 mb-6 sm:mb-8 p-1 sm:p-1.5 bg-surface/70 border border-zinc-800/80 rounded-2xl">
         <button
           onClick={() => setActiveTab('education')}
-          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all ${
+          className={`shrink-0 whitespace-nowrap flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all ${
             activeTab === 'education'
               ? 'bg-zinc-800 text-white shadow-sm border border-zinc-700/60'
               : 'text-zinc-400 hover:text-zinc-200'
@@ -253,7 +253,7 @@ const Resume = () => {
 
         <button
           onClick={() => setActiveTab('competencies')}
-          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all ${
+          className={`shrink-0 whitespace-nowrap flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all ${
             activeTab === 'competencies'
               ? 'bg-zinc-800 text-white shadow-sm border border-zinc-700/60'
               : 'text-zinc-400 hover:text-zinc-200'
@@ -265,7 +265,7 @@ const Resume = () => {
 
         <button
           onClick={() => setActiveTab('experience')}
-          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all ${
+          className={`shrink-0 whitespace-nowrap flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all ${
             activeTab === 'experience'
               ? 'bg-zinc-800 text-white shadow-sm border border-zinc-700/60'
               : 'text-zinc-400 hover:text-zinc-200'
@@ -277,7 +277,7 @@ const Resume = () => {
 
         <button
           onClick={() => setActiveTab('languages')}
-          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all ${
+          className={`shrink-0 whitespace-nowrap flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all ${
             activeTab === 'languages'
               ? 'bg-zinc-800 text-white shadow-sm border border-zinc-700/60'
               : 'text-zinc-400 hover:text-zinc-200'
@@ -289,8 +289,8 @@ const Resume = () => {
       </div>
 
       {/* Tab Panels */}
-      <div className="p-1 rounded-3xl bg-surface/60 border border-zinc-800/80 shadow-bezel">
-        <div className="p-6 sm:p-8 rounded-[calc(1.5rem-2px)] bg-[#0d0d11]">
+      <div className="p-1 rounded-2xl sm:rounded-3xl bg-surface/60 border border-zinc-800/80 shadow-bezel">
+        <div className="p-4 sm:p-8 rounded-[calc(1rem-1px)] sm:rounded-[calc(1.5rem-2px)] bg-[#0d0d11]">
           {/* 1. Education Tab */}
           {activeTab === 'education' && (
             <motion.div
@@ -334,11 +334,11 @@ const Resume = () => {
                     <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-400 mb-3">
                       {language === 'it' ? 'Corsi Fondamentali & Laboratori Accademici:' : 'Core Academic Coursework & Labs:'}
                     </h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-2.5">
                       {item.courses.map((course, cIdx) => (
                         <div 
                           key={cIdx} 
-                          className="flex items-start gap-2.5 p-3 rounded-xl bg-surface/70 border border-zinc-800/70 text-xs sm:text-sm text-zinc-300"
+                          className="flex items-start gap-2.5 p-2.5 sm:p-3 rounded-xl bg-surface/70 border border-zinc-800/70 text-xs sm:text-sm text-zinc-300"
                         >
                           <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                           <span>{course}</span>
@@ -357,19 +357,19 @@ const Resume = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-6"
+              className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6"
             >
               {competencies.map((comp, idx) => (
-                <div key={idx} className="p-5 rounded-2xl bg-surface/60 border border-zinc-800/80">
+                <div key={idx} className="p-4 sm:p-5 rounded-2xl bg-surface/60 border border-zinc-800/80">
                   <h4 className="text-sm font-semibold text-white mb-3 font-mono tracking-wide flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
                     {comp.category}
                   </h4>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {comp.skills.map((skill, sIdx) => (
                       <span
                         key={sIdx}
-                        className="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono hover:border-zinc-600 transition-colors"
+                        className="px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono hover:border-zinc-600 transition-colors"
                       >
                         {skill}
                       </span>

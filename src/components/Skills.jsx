@@ -75,8 +75,8 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-16 scroll-mt-24 border-t border-zinc-800/80">
-      <div className="mb-12">
+    <section id="skills" className="py-12 sm:py-16 scroll-mt-24 border-t border-zinc-800/80">
+      <div className="mb-8 sm:mb-12">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-zinc-800 text-xs font-mono text-zinc-400 mb-3">
           <Binary className="w-3.5 h-3.5 text-emerald-400" />
           <span>{language === 'it' ? 'Competenze Cardine' : 'Core Capabilities'}</span>
@@ -89,12 +89,12 @@ const Skills = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
         {skillsConfig.map((skill, idx) => {
           const IconComponent = skill.icon;
           return (
             <motion.div 
-              key={skill.id}
+              key={skill.id} 
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
@@ -102,7 +102,7 @@ const Skills = () => {
               transition={{ delay: idx * 0.05 }}
               className="group relative p-1 rounded-2xl bg-surface/50 border border-zinc-800 hover:border-zinc-600 transition-all duration-300 shadow-sm flex flex-col justify-between"
             >
-              <div className="p-6 rounded-[calc(1rem-1px)] bg-[#0d0d11] flex flex-col justify-between h-full">
+              <div className="p-5 sm:p-6 rounded-[calc(1rem-1px)] bg-[#0d0d11] flex flex-col justify-between h-full">
                 <div>
                   <div className="flex items-start justify-between mb-4">
                     <div className="p-2.5 bg-zinc-900 rounded-xl text-emerald-400 border border-zinc-800 group-hover:border-zinc-700 transition-colors">

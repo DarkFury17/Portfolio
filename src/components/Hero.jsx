@@ -45,7 +45,7 @@ const Hero = () => {
   }, [modalType]);
 
   return (
-    <section id="hero" className="min-h-[82vh] flex flex-col justify-center relative pt-12">
+    <section id="hero" className="min-h-[82vh] flex flex-col justify-center relative pt-8 sm:pt-12 overflow-hidden">
       {/* Ambient background glows */}
       <div className="absolute top-1/4 -left-20 w-80 h-80 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-zinc-700/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -64,12 +64,12 @@ const Hero = () => {
 
         {/* Main Name & Title */}
         <motion.div variants={itemVariants} className="mb-3">
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08]">
+          <h1 className="text-3xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] sm:leading-[1.08]">
             Marco Di Palma
           </h1>
         </motion.div>
         
-        <motion.h2 variants={itemVariants} className="text-2xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-zinc-300 mb-6 leading-[1.15]">
+        <motion.h2 variants={itemVariants} className="text-xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-zinc-300 mb-5 sm:mb-6 leading-[1.2] sm:leading-[1.15]">
           {language === 'it' ? 'Software Engineer &' : 'Software Engineer &'}{' '}
           <br className="hidden sm:inline" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-400 to-zinc-500">
@@ -78,7 +78,7 @@ const Hero = () => {
         </motion.h2>
         
         {/* Technical Value Proposition */}
-        <motion.p variants={itemVariants} className="text-base sm:text-lg text-zinc-400 mb-8 max-w-2xl leading-relaxed">
+        <motion.p variants={itemVariants} className="text-sm sm:text-lg text-zinc-400 mb-6 sm:mb-8 max-w-2xl leading-relaxed">
           {language === 'it' ? (
             <>
               Studente di Informatica presso l&apos;
@@ -97,37 +97,37 @@ const Hero = () => {
         </motion.p>
 
         {/* Key Engineering Pillars / Highlights */}
-        <motion.div variants={itemVariants} className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-10 max-w-2xl">
-          <div className="flex items-center gap-2.5 p-3 rounded-xl bg-surface/60 border border-zinc-800/80">
+        <motion.div variants={itemVariants} className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 mb-8 sm:mb-10 max-w-2xl">
+          <div className="flex items-center gap-2 sm:gap-2.5 p-2.5 sm:p-3 rounded-xl bg-surface/60 border border-zinc-800/80">
             <Terminal className="w-4 h-4 text-emerald-400 shrink-0" />
-            <div className="text-xs">
-              <div className="font-semibold text-zinc-200">Systems & C</div>
-              <div className="text-zinc-400 text-[11px]">{t.hero.systemsHighlight}</div>
+            <div className="text-xs min-w-0">
+              <div className="font-semibold text-zinc-200 truncate">Systems & C</div>
+              <div className="text-zinc-400 text-[10px] sm:text-[11px] truncate">{t.hero.systemsHighlight}</div>
             </div>
           </div>
-          <div className="flex items-center gap-2.5 p-3 rounded-xl bg-surface/60 border border-zinc-800/80">
+          <div className="flex items-center gap-2 sm:gap-2.5 p-2.5 sm:p-3 rounded-xl bg-surface/60 border border-zinc-800/80">
             <Cpu className="w-4 h-4 text-blue-400 shrink-0" />
-            <div className="text-xs">
-              <div className="font-semibold text-zinc-200">Full-Stack</div>
-              <div className="text-zinc-400 text-[11px]">{t.hero.fullstackHighlight}</div>
+            <div className="text-xs min-w-0">
+              <div className="font-semibold text-zinc-200 truncate">Full-Stack</div>
+              <div className="text-zinc-400 text-[10px] sm:text-[11px] truncate">{t.hero.fullstackHighlight}</div>
             </div>
           </div>
-          <div className="col-span-2 sm:col-span-1 flex items-center gap-2.5 p-3 rounded-xl bg-surface/60 border border-zinc-800/80">
+          <div className="col-span-2 sm:col-span-1 flex items-center gap-2 sm:gap-2.5 p-2.5 sm:p-3 rounded-xl bg-surface/60 border border-zinc-800/80">
             <Shield className="w-4 h-4 text-purple-400 shrink-0" />
-            <div className="text-xs">
-              <div className="font-semibold text-zinc-200">{language === 'it' ? 'Architettura' : 'Architecture'}</div>
-              <div className="text-zinc-400 text-[11px]">{t.hero.architectureHighlight}</div>
+            <div className="text-xs min-w-0">
+              <div className="font-semibold text-zinc-200 truncate">{language === 'it' ? 'Architettura' : 'Architecture'}</div>
+              <div className="text-zinc-400 text-[10px] sm:text-[11px] truncate">{t.hero.architectureHighlight}</div>
             </div>
           </div>
         </motion.div>
 
         {/* CTAs and External Links */}
-        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row sm:items-center gap-4">
-          <div className="flex flex-wrap items-center gap-3">
+        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
             {/* View Projects CTA */}
             <a 
               href="#projects" 
-              className="group inline-flex items-center justify-center gap-2 bg-white text-black px-6 py-3 rounded-xl font-semibold text-sm hover:bg-zinc-200 active:scale-95 transition-all shadow-md focus-visible:ring-2 focus-visible:ring-emerald-500"
+              className="group flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-white text-black px-5 sm:px-6 py-3 rounded-xl font-semibold text-sm hover:bg-zinc-200 active:scale-95 transition-all shadow-md focus-visible:ring-2 focus-visible:ring-emerald-500 whitespace-nowrap"
             >
               <span>{t.hero.exploreProjects}</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform ease-out" />
@@ -138,7 +138,7 @@ const Hero = () => {
               href="/Marco_Di_Palma_CV.pdf"
               download="Marco_Di_Palma_CV.pdf"
               aria-label="Download Marco Di Palma CV in PDF format"
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-zinc-700 bg-zinc-900/80 text-zinc-200 font-medium hover:bg-zinc-800 hover:border-zinc-500 hover:text-white active:scale-95 transition-all text-sm shadow-sm focus-visible:ring-2 focus-visible:ring-emerald-500"
+              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-3 rounded-xl border border-zinc-700 bg-zinc-900/80 text-zinc-200 font-medium hover:bg-zinc-800 hover:border-zinc-500 hover:text-white active:scale-95 transition-all text-sm shadow-sm focus-visible:ring-2 focus-visible:ring-emerald-500 whitespace-nowrap"
             >
               <Download className="w-4 h-4 text-emerald-400" />
               <span>{t.cv.cvButton}</span>
@@ -150,7 +150,7 @@ const Hero = () => {
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="Visit GitHub Profile"
-              className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-zinc-800 bg-surface/60 text-zinc-300 font-medium hover:bg-zinc-800 hover:text-white transition-all text-sm focus-visible:ring-2 focus-visible:ring-emerald-500"
+              className="inline-flex items-center justify-center gap-2 px-3.5 sm:px-4 py-3 rounded-xl border border-zinc-800 bg-surface/60 text-zinc-300 font-medium hover:bg-zinc-800 hover:text-white transition-all text-sm focus-visible:ring-2 focus-visible:ring-emerald-500"
             >
               <Github className="w-4 h-4" />
               <span className="hidden sm:inline">GitHub</span>
@@ -162,7 +162,7 @@ const Hero = () => {
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="Visit LinkedIn Profile"
-              className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-zinc-800 bg-surface/60 text-zinc-300 font-medium hover:bg-zinc-800 hover:text-blue-400 transition-all text-sm focus-visible:ring-2 focus-visible:ring-emerald-500"
+              className="inline-flex items-center justify-center gap-2 px-3.5 sm:px-4 py-3 rounded-xl border border-zinc-800 bg-surface/60 text-zinc-300 font-medium hover:bg-zinc-800 hover:text-blue-400 transition-all text-sm focus-visible:ring-2 focus-visible:ring-emerald-500"
             >
               <Linkedin className="w-4 h-4" />
               <span className="hidden sm:inline">LinkedIn</span>
@@ -172,7 +172,7 @@ const Hero = () => {
           <div className="hidden sm:block w-px h-8 bg-zinc-800 mx-1"></div>
 
           {/* Quick Contact Micro-Actions */}
-          <div className="flex items-center gap-2 pt-2 sm:pt-0">
+          <div className="flex items-center gap-2 pt-1 sm:pt-0">
             <button 
               type="button"
               onClick={() => setModalType('email')}
@@ -217,7 +217,7 @@ const Hero = () => {
             onClick={() => setModalType(null)}
           ></div>
           
-          <div className="relative w-full max-w-sm bg-surface border border-zinc-700/80 rounded-2xl shadow-2xl p-6 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+          <div className="relative w-full max-w-sm bg-surface border border-zinc-700/80 rounded-2xl shadow-2xl p-6 overflow-hidden animate-in fade-in zoom-in-95 duration-200 max-h-[90dvh] overflow-y-auto">
             {modalType === 'phone' && (
               <div>
                 <div className="w-12 h-12 rounded-xl bg-zinc-800 border border-zinc-700 flex items-center justify-center text-white mb-4">

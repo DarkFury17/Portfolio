@@ -45,12 +45,12 @@ export const AppleHelloSplash: React.FC<AppleHelloSplashProps> = ({ onComplete }
         isClosing ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
     >
-      <div className="w-full max-w-[500px] px-6 flex items-center justify-center">
+      <div className="w-full max-w-[320px] sm:max-w-[500px] px-6 flex items-center justify-center">
         <object
           type="image/svg+xml"
           data="/hello-apple.svg"
           aria-label="Apple Hello Animation"
-          className="w-full max-w-[500px] pointer-events-none"
+          className="w-full max-w-[320px] sm:max-w-[500px] pointer-events-none"
         />
       </div>
     </aside>

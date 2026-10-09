@@ -9,8 +9,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="mt-20 border-t border-zinc-800/80 bg-[#09090c] text-zinc-400 py-12">
-      <div className="max-w-6xl mx-auto px-6">
+    <footer className="mt-16 sm:mt-20 border-t border-zinc-800/80 bg-[#09090c] text-zinc-400 py-10 sm:py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-zinc-800/60">
           <div>
             <div className="flex items-center gap-2 mb-2">
@@ -28,7 +28,7 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-6 text-xs font-medium">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs font-medium">
             <a href="#hero" className="hover:text-white transition-colors">{t.nav.about}</a>
             <a href="#projects" className="hover:text-white transition-colors">{t.nav.projects}</a>
             <a href="#resume" className="hover:text-white transition-colors">{t.nav.cv}</a>
@@ -40,7 +40,7 @@ const Footer = () => {
             <a 
               href="https://github.com/DarkFury17" 
               target="_blank" 
-              rel="noopener noreferrer"
+              rel="noopener noreferrer" 
               aria-label="GitHub Profile"
               className="p-2.5 rounded-xl bg-surface border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-600 transition-all"
             >
@@ -49,7 +49,7 @@ const Footer = () => {
             <a 
               href="https://www.linkedin.com/in/dipalmamarco/" 
               target="_blank" 
-              rel="noopener noreferrer"
+              rel="noopener noreferrer" 
               aria-label="LinkedIn Profile"
               className="p-2.5 rounded-xl bg-surface border border-zinc-800 text-zinc-400 hover:text-blue-400 hover:border-zinc-600 transition-all"
             >
@@ -65,7 +65,7 @@ const Footer = () => {
             <button
               onClick={scrollToTop}
               aria-label="Scroll back to top"
-              className="p-2.5 rounded-xl bg-zinc-800 text-zinc-300 hover:text-white hover:bg-zinc-700 transition-all ml-2"
+              className="p-2.5 rounded-xl bg-zinc-800 text-zinc-300 hover:text-white hover:bg-zinc-700 transition-all ml-1 sm:ml-2"
               title={language === 'it' ? 'Torna all’inizio' : 'Back to Top'}
             >
               <ArrowUp className="w-4 h-4" />
@@ -73,7 +73,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 text-xs text-zinc-400">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 pt-6 text-xs text-zinc-400">
           <p>© {new Date().getFullYear()} Marco Di Palma. All rights reserved.</p>
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500"></span>

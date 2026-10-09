@@ -24,8 +24,8 @@ const MyBuild = () => {
   }, [isModalOpen]);
 
   return (
-    <section id="build" className="py-16 scroll-mt-24 border-t border-zinc-800/80">
-      <div className="flex flex-col lg:flex-row gap-12 items-start justify-between">
+    <section id="build" className="py-12 sm:py-16 scroll-mt-24 border-t border-zinc-800/80">
+      <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start justify-between">
         
         {/* Left Info Column */}
         <div className="w-full lg:w-5/12 space-y-5">
@@ -55,8 +55,8 @@ const MyBuild = () => {
 
         {/* Right Hardware Spec Card */}
         <div className="w-full lg:w-7/12">
-          <div className="p-1 rounded-3xl bg-surface/70 border border-zinc-800 shadow-bezel">
-            <div className="bg-[#0d0d11] rounded-[calc(1.5rem-2px)] p-6 sm:p-8">
+          <div className="p-1 rounded-2xl sm:rounded-3xl bg-surface/70 border border-zinc-800 shadow-bezel">
+            <div className="bg-[#0d0d11] rounded-[calc(1rem-1px)] sm:rounded-[calc(1.5rem-2px)] p-5 sm:p-8">
               
               <div className="flex items-center justify-between border-b border-zinc-800/80 pb-5 mb-6">
                 <div>
@@ -71,16 +71,16 @@ const MyBuild = () => {
                 </div>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3.5 sm:space-y-4">
                 {/* CPU */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-xl bg-surface/50 border border-zinc-800/60 hover:border-zinc-700 transition-colors">
-                  <div className="flex items-center gap-3.5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3 sm:p-3.5 rounded-xl bg-surface/50 border border-zinc-800/60 hover:border-zinc-700 transition-colors">
+                  <div className="flex items-center gap-3 sm:gap-3.5 min-w-0">
                     <div className="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-emerald-400 shrink-0">
                       <Cpu className="w-4 h-4" />
                     </div>
-                    <div>
-                      <div className="text-sm font-medium text-white">Central Processing Unit</div>
-                      <div className="text-xs text-zinc-400 font-mono mt-0.5">Socket AM5 • 6 Cores, 12 Threads (5.3 GHz Boost)</div>
+                    <div className="min-w-0">
+                      <div className="text-sm font-medium text-white truncate">Central Processing Unit</div>
+                      <div className="text-[11px] sm:text-xs text-zinc-400 font-mono mt-0.5">Socket AM5 • 6 Cores, 12 Threads (5.3 GHz Boost)</div>
                     </div>
                   </div>
                   <div className="text-zinc-200 font-mono text-xs bg-zinc-900 px-2.5 py-1 rounded border border-zinc-800 shrink-0 self-start sm:self-auto">
@@ -89,14 +89,14 @@ const MyBuild = () => {
                 </div>
 
                 {/* GPU */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-xl bg-surface/50 border border-zinc-800/60 hover:border-zinc-700 transition-colors">
-                  <div className="flex items-center gap-3.5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3 sm:p-3.5 rounded-xl bg-surface/50 border border-zinc-800/60 hover:border-zinc-700 transition-colors">
+                  <div className="flex items-center gap-3 sm:gap-3.5 min-w-0">
                     <div className="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-blue-400 shrink-0">
                       <Monitor className="w-4 h-4" />
                     </div>
-                    <div>
-                      <div className="text-sm font-medium text-white">Graphics Processing Unit</div>
-                      <div className="text-xs text-zinc-400 font-mono mt-0.5">Ada Lovelace • 12GB GDDR6X</div>
+                    <div className="min-w-0">
+                      <div className="text-sm font-medium text-white truncate">Graphics Processing Unit</div>
+                      <div className="text-[11px] sm:text-xs text-zinc-400 font-mono mt-0.5">Ada Lovelace • 12GB GDDR6X</div>
                     </div>
                   </div>
                   <div className="text-zinc-200 font-mono text-xs bg-zinc-900 px-2.5 py-1 rounded border border-zinc-800 shrink-0 self-start sm:self-auto">
@@ -105,16 +105,16 @@ const MyBuild = () => {
                 </div>
 
                 {/* Memory & NVMe */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-xl bg-surface/50 border border-zinc-800/60 hover:border-zinc-700 transition-colors">
-                  <div className="flex items-center gap-3.5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3 sm:p-3.5 rounded-xl bg-surface/50 border border-zinc-800/60 hover:border-zinc-700 transition-colors">
+                  <div className="flex items-center gap-3 sm:gap-3.5 min-w-0">
                     <div className="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-purple-400 shrink-0">
                       <HardDrive className="w-4 h-4" />
                     </div>
-                    <div>
-                      <div className="text-sm font-medium text-white">
+                    <div className="min-w-0">
+                      <div className="text-sm font-medium text-white truncate">
                         {language === 'it' ? 'Memoria & Storage NVMe' : 'Memory & NVMe Storage'}
                       </div>
-                      <div className="text-xs text-zinc-400 font-mono mt-0.5">High Frequency Workload Profiling</div>
+                      <div className="text-[11px] sm:text-xs text-zinc-400 font-mono mt-0.5">High Frequency Workload Profiling</div>
                     </div>
                   </div>
                   <div className="text-zinc-200 font-mono text-xs bg-zinc-900 px-2.5 py-1 rounded border border-zinc-800 shrink-0 self-start sm:self-auto text-left sm:text-right">
@@ -142,11 +142,11 @@ const MyBuild = () => {
             onClick={() => setIsModalOpen(false)}
           ></div>
           
-          <div className="relative w-full max-w-lg bg-surface border border-zinc-700 rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
-            <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-800 bg-[#0d0d11]">
+          <div className="relative w-full max-w-lg bg-surface border border-zinc-700 rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200 max-h-[85dvh] overflow-y-auto">
+            <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 sm:py-4 border-b border-zinc-800 bg-[#0d0d11]">
               <div className="flex items-center gap-3">
                 <Terminal className="w-4 h-4 text-emerald-400" />
-                <h3 className="text-xs font-mono font-medium text-zinc-200">system_specs.log — /proc/sysinfo</h3>
+                <h3 className="text-xs font-mono font-medium text-zinc-200 truncate">system_specs.log — /proc/sysinfo</h3>
               </div>
               <button 
                 type="button"
@@ -158,7 +158,7 @@ const MyBuild = () => {
               </button>
             </div>
             
-            <div className="p-6 bg-[#0a0a0d]">
+            <div className="p-4 sm:p-6 bg-[#0a0a0d]">
               <div className="font-mono text-xs sm:text-sm text-zinc-400 space-y-3">
                 <p>
                   <span className="text-emerald-400">marcodipalma@workstation</span>
@@ -167,7 +167,7 @@ const MyBuild = () => {
                   <span className="text-zinc-300">$ cat /proc/sys_specs</span>
                 </p>
                 
-                <ul className="pl-4 space-y-2 border-l border-zinc-800 ml-2 mt-4 text-zinc-300 text-xs">
+                <ul className="pl-3 sm:pl-4 space-y-2 border-l border-zinc-800 ml-1 sm:ml-2 mt-4 text-zinc-300 text-xs break-words">
                   <li><span className="text-zinc-500 mr-3">CPU:</span> AMD Ryzen 5 7600X (6C/12T, 5.3 GHz)</li>
                   <li><span className="text-zinc-500 mr-3">GPU:</span> NVIDIA GeForce RTX 4070 12GB</li>
                   <li><span className="text-zinc-500 mr-3">Motherboard:</span> Gigabyte B650 Eagle AX (Socket AM5)</li>
