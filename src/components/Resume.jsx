@@ -13,104 +13,197 @@ const Resume = () => {
 
   const education = language === 'it' ? [
     {
-      degree: 'Laurea Triennale in Informatica e Tecnologie Software',
+      degree: 'Laurea Triennale in Informatica e Tecnologie per la Produzione del Software',
       institution: "Università degli Studi di Bari 'Aldo Moro' (UNIBA)",
       location: 'Bari, Italia',
-      period: '2023 — Presente (Prevista 2026)',
+      period: '2024 — In corso',
       status: 'In Corso',
       courses: [
-        'Algoritmi e Strutture Dati (C/Java Avanzato)',
-        'Reti di Calcolatori (Socket POSIX TCP/UDP & Design di Protocolli)',
-        'Sistemi Operativi (Processi, Thread, Sincronizzazione & Memoria)',
-        'Ingegneria del Software (Design Patterns, Clean Architecture, Testing)',
-        'Basi di Dati (Modellazione Relazionale, SQL & Normalizzazione)',
-        'Architettura degli Elaboratori (Assembly, Gerarchie di Memoria & HW/SW)',
+        'Sviluppo Software e Metodologie di Progettazione',
+        'Linguaggi di Programmazione & Strutture Dati',
+        'Basi di Dati e Modellazione Relazionale',
+        'Architetture Software e Sistemi Web',
       ],
-      description: 'Percorso universitario focalizzato sulla teoria della computazione, architetture software scalabili, sistemi concorrenti e programmazione di sistema a basso livello in ambiente Unix.',
+      description: 'Corso di laurea triennale focalizzato sulla progettazione del software, sviluppo web moderno, basi di dati, metodologie di produzione software ed etica ingegneristica.',
+    },
+    {
+      degree: 'Diploma di Liceo Scientifico (Scienze Applicate)',
+      institution: 'Liceo Scientifico (Scienze Applicate)',
+      location: 'Bitetto, Italia',
+      period: '2018 — 2023',
+      status: 'Completato',
+      courses: [
+        'Fondamenti di Informatica e Logica Computazionale',
+        'Matematica Avanzata e Fisica',
+        'Scienze Applicate e Attività di Laboratorio Sperimentale',
+      ],
+      description: 'Formazione scientifica orientata al ragionamento logico, problem solving analitico e all’utilizzo delle nuove tecnologie applicate.',
     },
   ] : [
     {
-      degree: 'Bachelor of Science in Computer Science & Software Engineering',
+      degree: 'Bachelor Degree in Computer Science and Software Production Technologies',
       institution: "University of Bari 'Aldo Moro' (UNIBA)",
       location: 'Bari, Italy',
-      period: '2023 — Present (Expected 2026)',
+      period: '2024 — Present',
       status: 'In Progress',
       courses: [
-        'Algorithms & Data Structures (Advanced C/Java)',
-        'Computer Networks (POSIX TCP/UDP Sockets & Protocol Design)',
-        'Operating Systems (Processes, Threads, Synchronization & Memory)',
-        'Software Engineering (Design Patterns, Clean Architecture, Testing)',
-        'Database Management Systems (Relational Modeling, SQL & Normalization)',
-        'Computer Architecture (Hardware-Software Interface, Assembly & Memory Hierarchy)',
+        'Software Engineering & System Design Methodologies',
+        'Programming Languages & Data Structures',
+        'Relational Databases & Data Modeling',
+        'Modern Web Architectures & Operating Systems',
       ],
-      description: 'Undergraduate studies emphasizing computational theory, software design patterns, concurrent systems, and hands-on system programming in Unix environments.',
+      description: 'Undergraduate degree program emphasizing software engineering principles, modern web application development, data architectures, and disciplined software development practices.',
+    },
+    {
+      degree: 'Scientific High School Diploma (Applied Sciences)',
+      institution: 'Liceo Scientifico (Applied Sciences)',
+      location: 'Bitetto, Italy',
+      period: '2018 — 2023',
+      status: 'Completed',
+      courses: [
+        'Foundations of Computer Science & Algorithmic Logic',
+        'Advanced Mathematics & Physics',
+        'Experimental Science & Laboratory Methodologies',
+      ],
+      description: 'Solid scientific and technical foundation focused on analytical problem solving, logical reasoning, and modern technologies.',
     },
   ];
 
   const experienceAndMilestones = language === 'it' ? [
     {
-      role: 'Sviluppatore Full-Stack & Manutentore',
-      entity: 'Piattaforma EnjoyourCoffee',
-      location: 'Remoto / Bari, Italia',
-      period: '2024 — Presente',
+      role: 'Rider Portapizze',
+      entity: 'Al Vecchio Posto',
+      location: 'Palo del Colle (BA), Italia',
+      period: '08/2024 — 09/2024',
       points: [
-        'Progettazione e deploy di un e-commerce di produzione per transazioni e ordini in tempo reale.',
-        'Hardening di sicurezza web contro vulnerabilità OWASP: query parametrizzate, token CSRF e rotazione sessioni sicure.',
-        'Ottimizzazione delle performance mobile e dello stato del carrello per ridurre gli abbandoni durante il checkout.',
+        'Consegna puntuale di ordini a domicilio, garantendo cortesia, precisione e massima professionalità verso i clienti.',
+        'Gestione autonoma degli incassi e quadratura di cassa al momento della consegna.',
       ],
     },
     {
-      role: 'Programmatore di Sistema & Ricerca Reti Distribuite',
-      entity: 'Progetti Ingegneristici Accademici (UNIBA)',
-      location: 'Bari, Italia',
-      period: '2023 — Presente',
+      role: 'Operatore Call Center',
+      entity: 'GierreContact',
+      location: 'Napoli / Remoto, Italia',
+      period: '03/2024 — 06/2024',
       points: [
-        'Sviluppo di una suite di telemetria multi-thread in C con socket POSIX non bloccanti e multiplexing I/O.',
-        'Creazione di UniPlan, scheduler accademico combinatorio basato su grafi DAG per propedeuticità e risolutore CSP.',
-        'Implementazione gestionale desktop in C con strutture dati lineari dinamiche e zero memory leak verificati su Valgrind.',
+        'Gestione delle relazioni commerciali e negoziazione telefonica secondo elevati standard aziendali.',
+        'Utilizzo continuativo di strumenti CRM per l’aggiornamento anagrafico e il tracciamento dei lead.',
+        'Raggiungimento costante dei target individuali e di squadra su volumi e tassi di conversione.',
+      ],
+    },
+    {
+      role: 'Magazziniere',
+      entity: 'DigiSolution',
+      location: 'Modugno (BA), Italia',
+      period: '04/2023 — 08/2023',
+      points: [
+        'Ricezione, verifica di conformità e smistamento rapido della merce in entrata.',
+        'Organizzazione del magazzino con catalogazione e sistemazione logica delle scorte.',
+        'Collaborazione attiva con il team logistico per ottimizzare i flussi e le tempistiche di carico/scarico.',
+      ],
+    },
+    {
+      role: 'Assistente Bagnante Piscina',
+      entity: 'Masseria Vero',
+      location: 'Palo del Colle / Bari, Italia',
+      period: '06/2022 — 09/2022',
+      points: [
+        'Utilizzo delle attrezzature tecniche per il soccorso in acqua e supporto alle funzioni vitali tramite defibrillatore (DAE).',
+        'Esecuzione di protocolli di primo soccorso in caso di emergenze e situazioni critiche.',
+        'Sorveglianza continua e regolamentazione della sicurezza dell’attività balneare.',
+      ],
+    },
+    {
+      role: 'Barista & Servizio al Tavolo',
+      entity: 'Masseria Vero',
+      location: 'Palo del Colle / Bari, Italia',
+      period: 'Stagionale',
+      points: [
+        'Gestione di caffetteria, prima colazione, preparazione e servizio piatti freddi/caldi e aperitivi al banco e al tavolo.',
+        'Ricezione forniture e assistenza operativa allo scarico merci.',
+        'Gestione della cassa con elaborazione del conto e quadratura dei pagamenti.',
       ],
     },
   ] : [
     {
-      role: 'Full-Stack Software Developer & Maintainer',
-      entity: 'EnjoyourCoffee Platform',
-      location: 'Remote / Bari, Italy',
-      period: '2024 — Present',
+      role: 'Delivery Courier / Rider',
+      entity: 'Al Vecchio Posto',
+      location: 'Palo del Colle (BA), Italy',
+      period: '08/2024 — 09/2024',
       points: [
-        'Architected and deployed a production-grade e-commerce application processing live transactions.',
-        'Hardened web security against OWASP vulnerabilities with parameterized queries, CSRF guards, and secure session rotation.',
-        'Streamlined mobile responsive performance and checkout state management, reducing friction during purchase flows.',
+        'Punctual on-demand home food deliveries maintaining high standards of customer courtesy and precision.',
+        'Handled order payments, cash transactions, and delivery reconciliations reliably.',
       ],
     },
     {
-      role: 'Systems Programmer & Distributed Systems Researcher',
-      entity: 'Academic Engineering Projects (UNIBA)',
-      location: 'Bari, Italy',
-      period: '2023 — Present',
+      role: 'Contact Center Representative',
+      entity: 'GierreContact',
+      location: 'Napoli / Remote, Italy',
+      period: '03/2024 — 06/2024',
       points: [
-        'Engineered a multi-threaded telemetry suite in C using POSIX non-blocking sockets and I/O multiplexing.',
-        'Built UniPlan, a combinatorial academic study scheduler utilizing DAG prerequisite modeling and CSP constraint solvers.',
-        'Designed high-integrity inventory software in C with dynamic linear linked lists and zero Valgrind memory leaks.',
+        'Managed customer communications and commercial outreach following defined company standards.',
+        'Continuous use of enterprise CRM tools for lead tracking, customer qualification, and database records.',
+        'Consistently achieved individual and team performance KPIs in volume and conversion rates.',
+      ],
+    },
+    {
+      role: 'Warehouse Assistant',
+      entity: 'DigiSolution',
+      location: 'Modugno (BA), Italy',
+      period: '04/2023 — 08/2023',
+      points: [
+        'Inbound cargo reception, physical inspection, and shipment sorting.',
+        'Warehouse space organization, cataloging, inventory placement, and stock tracking.',
+        'Collaborated closely with logistics personnel to streamline loading and dispatch workflows.',
+      ],
+    },
+    {
+      role: 'Certified Lifeguard (Pool & Marine)',
+      entity: 'Masseria Vero',
+      location: 'Palo del Colle / Bari, Italy',
+      period: '06/2022 — 09/2022',
+      points: [
+        'Operated aquatic emergency rescue equipment and supported basic life support using AED (DAE).',
+        'Executed first-aid response procedures during emergency conditions.',
+        'Maintained active visual surveillance and enforced pool safety standards.',
+      ],
+    },
+    {
+      role: 'Barista & Front-of-House Service',
+      entity: 'Masseria Vero',
+      location: 'Palo del Colle / Bari, Italy',
+      period: 'Seasonal',
+      points: [
+        'Prepared espresso drinks, breakfast services, cold/hot dishes, and table service in high-turnover settings.',
+        'Managed goods reception and assisted with stock replenishment.',
+        'Operated POS till, billing calculations, and financial reconciliation.',
       ],
     },
   ];
 
   const competencies = [
     {
-      category: language === 'it' ? 'Sistemi a Basso Livello & C' : 'Low-Level Systems & Programming',
-      skills: ['C (C99/C11)', 'POSIX Sockets', 'Multithreading (pthreads)', 'Dynamic Memory Allocation', 'Valgrind Profiling', 'I/O Multiplexing', 'Linux / Unix CLI'],
+      category: language === 'it' ? 'Linguaggi & Frontend' : 'Languages & Frontend',
+      skills: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'HTML5', 'CSS3', 'Tailwind CSS'],
     },
     {
-      category: language === 'it' ? 'Tecnologie Backend & Web' : 'Backend & Web Technologies',
-      skills: ['TypeScript', 'JavaScript (ES6+)', 'Node.js', 'Fastify', 'React 18 / 19', 'Prisma ORM', 'RESTful API Architecture', 'Zod Validation'],
+      category: language === 'it' ? 'Backend & Dati' : 'Backend & Data',
+      skills: ['Node.js', 'Fastify', 'PHP', 'SQL', 'PostgreSQL', 'SQLite', 'REST API'],
     },
     {
-      category: language === 'it' ? 'Database & Modellazione Dati' : 'Database & Data Modeling',
-      skills: ['PostgreSQL', 'Relational Schema Design', 'Query Optimization', 'Transactions & ACID', 'Prisma Schema Migrations'],
+      category: language === 'it' ? 'Strumenti & Ambienti' : 'Tools & Environments',
+      skills: ['Git', 'GitHub', 'Vercel', 'VS Code', 'npm / Vite'],
     },
     {
-      category: language === 'it' ? 'DevOps, Testing & Strumenti' : 'DevOps, Testing & Tooling',
-      skills: ['Git & GitHub Workflows', 'Vitest / Unit Testing', 'Docker & Compose', 'Doxygen Documentation', 'Vite Bundler', 'Tailwind CSS', 'CI/CD Basics'],
+      category: language === 'it' ? 'Soft Skill' : 'Soft Skills',
+      skills: [
+        language === 'it' ? 'Problem solving pratico' : 'Practical Problem Solving',
+        language === 'it' ? 'Orientamento al risultato' : 'Result-oriented',
+        language === 'it' ? 'Collaborazione in team' : 'Team Collaboration',
+        language === 'it' ? 'Comunicazione efficace' : 'Effective Communication',
+        language === 'it' ? 'Gestione del tempo e scadenze' : 'Time & Deadline Management',
+        language === 'it' ? 'Flessibilità e resilienza allo stress' : 'Stress Resilience & Flexibility',
+      ],
     },
   ];
 
@@ -118,20 +211,20 @@ const Resume = () => {
     {
       title: language === 'it' ? 'Lingue' : 'Languages',
       items: [
-        { name: language === 'it' ? 'Italiano' : 'Italian', level: language === 'it' ? 'Madrelingua' : 'Native proficiency' },
-        { name: language === 'it' ? 'Inglese' : 'English', level: language === 'it' ? 'Competenza Professionale Operativa (B2/C1)' : 'Professional Working Proficiency (B2/C1)' },
+        { name: language === 'it' ? 'Italiano' : 'Italian', level: language === 'it' ? 'Madrelingua' : 'Native speaker' },
+        { name: language === 'it' ? 'Inglese' : 'English', level: language === 'it' ? 'Intermedio' : 'Intermediate' },
       ],
     },
     {
-      title: language === 'it' ? 'Percorso & Traguardi Accademici' : 'Academic Honors & Focus',
+      title: language === 'it' ? 'Patenti & Informazioni' : 'Driver Licenses & Details',
       items: [
         { 
-          name: language === 'it' ? 'Laboratorio di Reti di Calcolatori' : 'Computer Networks Laboratory', 
-          level: language === 'it' ? 'Valutazione massima (Architettura C Multi-Protocollo)' : 'Top Evaluation (Multi-Protocol C Architecture)' 
+          name: language === 'it' ? 'Patenti di Guida' : 'Driver Licenses', 
+          level: language === 'it' ? 'Categorie B - A1 (Automunito)' : 'Categories B - A1 (Vehicle Owner)' 
         },
         { 
-          name: language === 'it' ? 'Laboratorio di Ingegneria del Software' : 'Software Engineering Project Lab', 
-          level: language === 'it' ? 'Focus su Clean Architecture & TDD' : 'Focus on Clean Architecture & Test-Driven Development' 
+          name: language === 'it' ? 'Residenza / Domicilio' : 'Location', 
+          level: language === 'it' ? 'Palo del Colle (Bari), Italia' : 'Palo del Colle (Bari), Italy' 
         },
       ],
     },
